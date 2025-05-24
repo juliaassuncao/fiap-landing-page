@@ -1,11 +1,23 @@
-import Image from 'next/image'
-import styles from "./Navbar.module.scss"
-import ProgressBar from './ProgressBar'
+import Image from "next/image";
+import styles from "./Navbar.module.scss";
+import ProgressBar from "./ProgressBar";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <nav className={styles.navbar}>
+      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : styles.top}`}>
         <Image
           src="/svgs/logo-fiap.svg"
           alt="Logo FIAP"
@@ -16,5 +28,5 @@ export default function Navbar() {
       </nav>
       <ProgressBar />
     </>
-  )
+  );
 }

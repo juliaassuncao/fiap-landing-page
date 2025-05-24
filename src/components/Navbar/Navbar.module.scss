@@ -13,6 +13,14 @@
   z-index: 1002;
 }
 
+.top {
+  background-color: $bg-site;
+}
+
+.scrolled {
+  background-color: $bg-navbar;
+}
+
 .logo {
   width: 9rem;
 }
