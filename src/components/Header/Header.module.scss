@@ -1,0 +1,64 @@
+@use "../../styles/main" as *;
+
+%baseStyle {
+  font-family: $font-family-gotham;
+}
+
+%mainStyle {
+  @extend %baseStyle;
+  color: $text-primary;
+  font-weight: $font-weight-book;
+  font-size: 110px;
+  line-height: 77px;
+  letter-spacing: -5px;
+  position: relative;
+}
+
+.header {
+  border: 1px solid red;
+  width: 1241px;
+  height: 313px;
+  min-height: calc(100vh - 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 321px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.mainTitle {
+  position: relative;
+  z-index: 1;
+}
+
+.primaryText {
+  @extend %mainStyle;
+  display: block;
+  margin-left: 124px;
+}
+
+.secondaryText {
+  @extend %mainStyle;
+  display: block;
+  margin-left: 48px;
+  margin-top: 22px;
+}
+
+.backgroundText {
+  @extend %baseStyle;
+  position: absolute;
+  bottom: 0;
+  z-index: 0;
+  text-transform: uppercase;
+  color: $text-decorative;
+  font-weight: $font-weight-black;
+  font-size: 350px;
+  line-height: 27px;
+  letter-spacing: -1px;
+}
