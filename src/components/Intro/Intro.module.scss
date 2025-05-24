@@ -1,0 +1,32 @@
+@use "../../styles/main" as *;
+
+.container {
+  font-family: $font-family-gotham;
+  margin-top: 43.12rem;
+  white-space: nowrap;     
+  overflow: hidden;  
+}
+.imageIntro {
+  margin-left: 11.31rem;
+}
+
+.textTransition {
+  color: $text-primary;
+  font-size: 5.18rem;
+}
+
+.lineText {
+  height: 0.125rem;
+  background-color: $white;
+}
+
+.textStroke {
+  font-size: 9rem;
+  -webkit-text-stroke: 0.125rem $stroke-text;
+}
+
+.textStrokeItalic {
+  font-size: 9rem;
+  font-style: italic;
+  -webkit-text-stroke: 0.125rem $stroke-text;
+}
