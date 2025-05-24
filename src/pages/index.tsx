@@ -1,3 +1,4 @@
+import Header from "@/components/Header/Header";
 import Navbar from "@/components/Navbar/Navbar";
 
 export default function Home() {
@@ -5,49 +6,7 @@ export default function Home() {
     <>
       <main>
         <Navbar />
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
-        <h1>Hello World</h1>
+        <Header />
       </main>
     </>
   );
