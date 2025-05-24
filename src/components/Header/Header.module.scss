@@ -8,57 +8,53 @@
   @extend %baseStyle;
   color: $text-primary;
   font-weight: $font-weight-book;
-  font-size: 110px;
-  line-height: 77px;
-  letter-spacing: -5px;
+  font-size: 6.87rem;
+  line-height: 4.81rem;
+  letter-spacing: -0.3rem;
   position: relative;
 }
 
 .header {
-  border: 1px solid red;
-  width: 1241px;
-  height: 313px;
-  min-height: calc(100vh - 5rem);
+  width: 77.56rem;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 321px;
+  margin-left: 20.06rem;
 }
 
 .container {
+  height: 19.56rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
 }
 
 .mainTitle {
-  position: relative;
   z-index: 1;
 }
 
 .primaryText {
   @extend %mainStyle;
   display: block;
-  margin-left: 124px;
+  margin-left: 7.75rem;
 }
 
 .secondaryText {
   @extend %mainStyle;
   display: block;
-  margin-left: 48px;
-  margin-top: 22px;
+  margin-left: 3rem;
+  margin-top: 1.37rem;
 }
 
 .backgroundText {
   @extend %baseStyle;
-  position: absolute;
-  bottom: 0;
   z-index: 0;
   text-transform: uppercase;
   color: $text-decorative;
   font-weight: $font-weight-black;
-  font-size: 350px;
-  line-height: 27px;
+  font-size: 21.87rem;
+  line-height: 1.68rem;
   letter-spacing: -1px;
 }
+
