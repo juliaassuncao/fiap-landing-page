@@ -5,6 +5,8 @@
   white-space: nowrap;     
   overflow: hidden;  
 
+  padding-bottom: 114px;
+
   border: 1px solid orange;
 }
 
@@ -31,20 +33,48 @@
   background-color: $white;
 }
 
-.imageIntro {
-  margin-left: 11.31rem;
+.imageWrapper {
+  position: relative;
+  width: fit-content;
+
+  .imageIntro {
+    display: block;
+    margin-left: 11.31rem;
+  }
+
+  .bottomText {
+    position: absolute;
+    top: 625px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .textStroke,
+    .textStrokeItalic {
+      font-size: 9rem;
+      text-transform: uppercase;
+      -webkit-text-stroke: 0.125rem $stroke-text;
+      color: transparent;
+
+      display: flex;
+      justify-content: center;
+    }
+
+    .textStrokeItalic {
+      font-style: italic;
+    }
+  }
 }
 
-.textStroke {
-  font-size: 9rem;
-  text-transform: uppercase;
-  -webkit-text-stroke: 0.125rem $stroke-text;
+.elipse {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  border: 2px solid $stroke-text;
+  border-radius: 50%;
+  background-color: transparent;
+  margin: auto 40px;
 }
-
-.textStrokeItalic {
-  font-size: 9rem;
-  text-transform: uppercase;
-  font-style: italic;
-  -webkit-text-stroke: 0.125rem $stroke-text;
-}
-

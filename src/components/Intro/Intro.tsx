@@ -14,20 +14,25 @@ export default function Intro() {
         </p>
         <hr className={styles.lineText} />
       </div>
-      <Image
-        src="/imgs/intro.png"
-        alt="Imagem de uma mulher com fone em preto e branco"
-        width={1495}
-        height={804}
-        className={styles.imageIntro}
-      />
-      <div className={styles.bottomText}>
-        <p className={styles.textStroke}>
-          Skills<span className={styles.elipse}> </span>Conhecimento
-        </p>
-        <p className={styles.textStrokeItalic}>
-          Muito. Muito além dos tutoriais
-        </p>
+
+      <div className={styles.imageWrapper}>
+        <Image
+          src="/imgs/intro.png"
+          alt="Imagem de uma mulher com fone em preto e branco"
+          width={1495}
+          height={804}
+          className={styles.imageIntro}
+        />
+        <div className={styles.bottomText}>
+          <p className={styles.textStroke}>
+            Skills<span className={styles.elipse}></span>Conhecimento
+            <span className={styles.elipse}></span>
+            <p>skills</p>
+          </p>
+          <p className={styles.textStrokeItalic}>
+            Muito. Muito além dos tutoriais
+          </p>
+        </div>
       </div>
     </div>
   );
