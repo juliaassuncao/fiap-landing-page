@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { useEffect, useState } from "react"
 import styles from "./ProgressBar.module.scss"
@@ -10,7 +10,7 @@ export default function ProgressBar() {
     function handleScroll() {
       const scrollTop = window.scrollY
       const docHeight = document.documentElement.scrollHeight - window.innerHeight
-      const scrollPercent = (scrollTop - docHeight) * 100
+      const scrollPercent = (scrollTop / docHeight) * 100
       setScrollProgress(scrollPercent)
     }
 

@@ -1,0 +1,12 @@
+@use "../../styles/main" as *;
+
+.progress {
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  height: 0.25rem;
+  width: 0;
+  background-color: $accent;
+  transition: width 0.2s ease;
+  z-index: 1001;
+}
