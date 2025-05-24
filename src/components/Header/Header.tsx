@@ -40,7 +40,6 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <div className={styles.container}>
         <div className={styles.mainTitle}>
           <span ref={primaryRef} className={styles.primaryText}>
             A Melhor Faculdade
@@ -52,7 +51,6 @@ export default function Header() {
         <span ref={backgroundRef} className={styles.backgroundText}>
           Sobre
         </span>
-      </div>
     </header>
   );
 }

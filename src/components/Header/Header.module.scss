@@ -11,50 +11,49 @@
   font-size: 6.87rem;
   line-height: 4.81rem;
   letter-spacing: -0.3rem;
+  display: block;
   position: relative;
+  z-index: 1;
 }
 
 .header {
   width: 77.56rem;
   height: 100vh;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   margin-left: 20.06rem;
-}
+  position: relative;
 
-.container {
-  height: 19.56rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.mainTitle {
-  z-index: 1;
+  border: 1px solid red;
 }
 
 .primaryText {
   @extend %mainStyle;
-  display: block;
   margin-left: 7.75rem;
 }
 
 .secondaryText {
   @extend %mainStyle;
-  display: block;
   margin-left: 3rem;
   margin-top: 1.37rem;
 }
 
 .backgroundText {
   @extend %baseStyle;
-  z-index: 0;
+  position: absolute;
+  top: 27rem;
+  left: 0;
   text-transform: uppercase;
   color: $text-decorative;
   font-weight: $font-weight-black;
   font-size: 21.87rem;
-  line-height: 1.68rem;
-  letter-spacing: -1px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  z-index: 0;
+
+  border: 1px solid blue;
 }
 

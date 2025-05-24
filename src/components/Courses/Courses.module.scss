@@ -1,0 +1,45 @@
+@use "../../styles/main" as *;
+
+.container {
+  max-width: 84.68rem;
+  height: 36.68rem;
+  font-family: $font-family-gotham;
+  font-weight: $font-weight-book;
+  margin-left: 13.25rem;
+  margin-top: 228px;
+
+  display: flex;
+  justify-content: space-between;
+
+  border: 1px solid red;
+}
+
+.titleWrapper {}
+
+.title {
+  font-weight: $font-weight-book;
+  color: $text-primary;
+  font-size: 5.75rem;
+  line-height: 1.68rem;
+  letter-spacing: -0.18rem;
+}
+
+.subtitle {
+  font-weight: $font-weight-book;
+  color: $text-secondary;
+  font-size: 1.37rem;
+  letter-spacing: 0.18rem;
+  margin-top: 0.81rem;
+  margin-left: 0.31rem;
+}
+
+.menu {
+  color: $text-primary;
+  font-weight: $font-weight-medium;
+  list-style: none;
+  display: flex;
+}
+
+.menuItem {
+
+}
