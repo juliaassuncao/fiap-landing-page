@@ -1,0 +1,32 @@
+// Cores brutas
+$white: #FFFFFF;         // títulos principais
+$gray-100: #D5DBD3;      // hover na pergunta do FAQ
+$gray-200: #949B99;      // resposta da FAQ e barra antes do hover
+$gray-300: #8A959B;      // títulos da lista de cursos
+$gray-800: #454C4F;      // stroke (borda de texto)
+$gray-900: #202121;      // fundo da navbar
+$gray-bg-text: #0B0C0D;  // texto decorativo atrás do título
+$black: #000000;         // background do site
+
+// Tons de magenta
+$pink-500: #ED145B;      // logo e barra ao fazer hover
+$pink-600: #F80D5A;      // subtítulo e barra acima de títulos
+
+// Cores semânticas
+$bg-site: $black;
+$bg-navbar: $gray-900;
+
+$text-primary: $white;
+$text-secondary: $pink-600;
+$text-faq: $gray-200;
+$text-faq-hover: $gray-100;
+$text-list-title: $gray-300;
+$text-decorative: $gray-bg-text;
+
+$bar-default: $gray-200;
+$bar-hover: $pink-500;
+
+$accent: $pink-500;       // barra de hover, logo
+$accent-sub: $pink-600;   // barra de título, subtítulo
+
+$stroke: $gray-800;
