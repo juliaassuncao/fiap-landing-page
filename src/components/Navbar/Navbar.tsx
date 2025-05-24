@@ -5,7 +5,7 @@ import ProgressBar from './ProgressBar'
 export default function Navbar() {
   return (
     <>
-      <header className={styles.navbar}>
+      <nav className={styles.navbar}>
         <Image
           src="/svgs/logo-fiap.svg"
           alt="Logo FIAP"
@@ -13,7 +13,7 @@ export default function Navbar() {
           height={48}
           className={styles.logo}
         />
-      </header>
+      </nav>
       <ProgressBar />
     </>
   )
