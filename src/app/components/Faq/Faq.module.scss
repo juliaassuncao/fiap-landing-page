@@ -4,8 +4,6 @@
 .container {
   width: 100%;
   padding: 13.125rem;
-
-  border: 1px solid red;
 }
 
 .title {
@@ -25,5 +23,36 @@
 .faqGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 6rem;
+  margin-top: 7.875rem;
+}
+
+.faqItem {
+  position: relative;
+  padding-top: 1.875rem;
+  cursor: pointer;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4.06rem;
+    height: 0.125rem;
+    background: $bar-default;
+  }
+}
+
+.question {
+  font-size: 1.25rem;
+  color: $text-faq;
+  font-weight: $font-weight-medium;
+}
+
+.answer {
+  font-size: 1rem;
+  color: $text-faq;
+  line-height: 1.18rem;
+  margin-top: 1rem;
 }
