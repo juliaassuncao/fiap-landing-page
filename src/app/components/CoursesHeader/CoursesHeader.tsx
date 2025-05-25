@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
 import { Item } from "./CoursesHeader.interface";
 import styles from "./CoursesHeader.module.scss";
 
@@ -40,9 +41,30 @@ const ITEMS: Item[] = [
 export default function CoursesHeader() {
   const [activeItem, setActiveItem] = useState(0);
 
+  const itemContentRefs = useRef<HTMLDivElement[]>([]);
+
   const handleItemClick = (index: number) => {
     setActiveItem(index);
   };
+
+    useEffect(() => {
+    // Para garantir que a referência exista
+    const currentItem = itemContentRefs.current[activeItem];
+    if (currentItem) {
+      // Anima os cursos filhos ao ativar a aba
+      gsap.fromTo(
+        currentItem.children,
+        { y: -10, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.08,
+          duration: 0.6,
+          ease: "power2.out",
+        }
+      );
+    }
+  }, [activeItem]);
 
   return (
     <div className={styles.container}>
@@ -68,15 +90,19 @@ export default function CoursesHeader() {
       </div>
 
       {/* === CONTEÚDO === */}
-      <div className={styles.tabContents}>
+      <div className={styles.itemContents}>
         {ITEMS.map((item, index) => (
           <div
             key={item.title}
-            className={`${styles.tabContent} ${
+            ref={(el) => {
+              if (el) itemContentRefs.current[index] = el;
+            }}
+            className={`${styles.itemContent} ${
               activeItem === index ? styles.active : ""
             }`}
+            style={{ display: activeItem === index ? "block" : "none" }}
           >
-            <h6 className={styles.tabTitle}>{item.title}</h6>
+            <h6 className={styles.itemTitle}>{item.title}</h6>
             {item.courses.map((course, courseIndex) => (
               <div key={courseIndex} className={styles.courseItem}>
                 <p className={styles.courseTitle}>{course.title}</p>

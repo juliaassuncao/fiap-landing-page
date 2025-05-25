@@ -72,3 +72,23 @@
     }
   }
 }
+
+.itemContents {
+  position: relative;
+  min-height: 400px;
+}
+
+.itemContent {
+  position: relative;
+  width: 60%;
+
+}
+
+.itemTitle {
+  font-size: 2.5rem;
+  color: $text-primary;
+  font-weight: normal;
+  margin: 6.56rem 0rem 7.81rem 0.312rem;
+}
+
+
