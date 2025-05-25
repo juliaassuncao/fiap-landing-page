@@ -1,0 +1,52 @@
+$breakpoint-4k: 240rem;
+$breakpoint-2k-wide: 160rem;
+$breakpoint-2k: 144rem;
+$breakpoint-fullhd: 120rem;
+$breakpoint-hd-plus: 100rem;
+$breakpoint-xl: 90rem;
+$breakpoint-lg: 85.375rem;
+$breakpoint-md: 64rem;
+$breakpoint-sm: 48rem;            
+$breakpoint-xs: 23.5rem;
+
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "4k" {
+    @media (max-width: $breakpoint-4k) { @content; }
+  }
+  @if $breakpoint == "2k-wide" {
+    @media (max-width: $breakpoint-2k-wide) { @content; }
+  }
+  @if $breakpoint == "2k" {
+    @media (max-width: $breakpoint-2k) { @content; }
+  }
+  @if $breakpoint == "fullhd" {
+    @media (max-width: $breakpoint-fullhd) { @content; }
+  }
+  @if $breakpoint == "hd-plus" {
+    @media (max-width: $breakpoint-hd-plus) { @content; }
+  }
+  @if $breakpoint == "xl" {
+    @media (max-width: $breakpoint-xl) { @content; }
+  }
+  @if $breakpoint == "lg" {
+    @media (max-width: $breakpoint-lg) { @content; }
+  }
+  @if $breakpoint == "md" {
+    @media (max-width: $breakpoint-md) { @content; }
+  }
+  @if $breakpoint == "sm" {
+    @media (max-width: $breakpoint-sm) { @content; }
+  }
+  @if $breakpoint == "xs" {
+    @media (max-width: $breakpoint-xs) { @content; }
+  }
+  
+  // Orientações da tela
+  @if $breakpoint == "landscape" {
+    @media (orientation: landscape) { @content; }
+  }
+  @if $breakpoint == "portrait" {
+    @media (orientation: portrait) { @content; }
+  }
+}
