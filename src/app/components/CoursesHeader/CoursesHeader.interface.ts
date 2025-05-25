@@ -3,7 +3,7 @@ export interface Course {
   type: string;
 }
 
-export interface Tab {
+export interface Item {
   title: string;
   courses: Course[];
 }
