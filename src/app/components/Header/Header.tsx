@@ -1,6 +1,7 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-
 import styles from "./Header.module.scss";
 
 export default function Header() {
