@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Tab } from "./Courses.interface";
 import styles from "./Courses.module.scss";
 
@@ -37,6 +38,12 @@ const TABS: Tab[] = [
 ];
 
 export default function Courses() {
+  const [activeItem, setActiveItem] = useState(0);
+
+  const handleItemClick = (index: number) => {
+    setActiveItem(index);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.coursesHeader}>
@@ -45,13 +52,20 @@ export default function Courses() {
           <h6 className={styles.subtitle}>Cursos de Curta Duração</h6>
         </div>
         <div className={styles.menuItem}>
-          {TABS.map((menuItem) => (
-            <button key={menuItem.title} className={`${styles.itemButton}`}>
-              {menuItem.title}
+          {TABS.map((item, index) => (
+            <button
+              key={item.title}
+              className={`${styles.itemButton} ${
+                activeItem === index ? styles.active : ""
+              }`}
+              onClick={() => handleItemClick(index)}
+            >
+              {item.title}
             </button>
           ))}
         </div>
       </div>
+
     </div>
   );
 }
