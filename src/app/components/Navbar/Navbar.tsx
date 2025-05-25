@@ -1,42 +1,45 @@
 "use client";
-
-import { useEffect, useState } from "react";
-
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Navbar.module.scss";
-import ProgressBar from "../ProgressBar/ProgressBar";
+import { useEffect, useState } from "react";
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 0);
+      const windowHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const currentScroll = window.scrollY;
+      const scrollPercentage = (currentScroll / windowHeight) * 100;
+
+      setScrollProgress(scrollPercentage);
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <>
-      <nav
-        className={`${styles.navbar} ${
-          scrolled ? styles.scrolled : styles.top
-        }`}
-      >
-        <Link href="/">
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <Link href="/" className={styles.logo}>
           <Image
             src="/svgs/logo-fiap.svg"
-            alt="Logo FIAP"
+            alt="Logo da FIAP"
             width={144}
             height={48}
-            className={styles.logo}
+            priority
           />
         </Link>
-      </nav>
-      <ProgressBar />
-    </>
+      </div>
+      <div
+        className={styles.progressBar}
+        style={{ width: `${scrollProgress}%` }}
+      />
+    </header>
   );
 }
