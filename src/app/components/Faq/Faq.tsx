@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import styles from "./Faq.module.scss";
 import type { FaqItem } from "./Faq.interface";
+import { BREAKPOINTS } from "../../constants/breakpoints";
 
 const FAQ_ITEMS: FaqItem[] = [
   {
@@ -36,6 +38,21 @@ const FAQ_ITEMS: FaqItem[] = [
 ];
 
 export default function Faq() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const handleMouseEnter = (index: number) => {
+    if (window.innerWidth > BREAKPOINTS.sm) {
+      setHoveredIndex(index);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (window.innerWidth > BREAKPOINTS.sm) {
+      setHoveredIndex(null);
+    }
+  };
+
   return (
     <section className={styles.container}>
       <div>
@@ -45,7 +62,16 @@ export default function Faq() {
 
       <div className={styles.faqGrid}>
         {FAQ_ITEMS.map((item, index) => (
-          <div key={index} className={`${styles.faqItem}`}>
+          <div
+            key={index}
+            className={`${styles.faqItem} ${
+              hoveredIndex === index || activeIndex === index
+                ? styles.active
+                : ""
+            }`}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
+          >
             <p className={styles.question}>{item.question}</p>
             <p className={styles.answer}>{item.answer}</p>
           </div>
