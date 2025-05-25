@@ -4,11 +4,11 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import styles from "./Intro.module.scss";
+import styles from "./OldIntro.module.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function Intro() {
+export function OldIntro() {
   const scrollLeftRef = useRef(null);
   const scrollRightRef = useRef(null);
   const imageRef = useRef(null);

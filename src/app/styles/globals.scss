@@ -12,7 +12,7 @@ body {
   background-color: $bg-site;
   color: $text-primary;
   font-family: $font-family-gotham;
-  // -webkit-font-smoothing: antialiased;
-  // -moz-osx-font-smoothing: grayscale;
-  // overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
