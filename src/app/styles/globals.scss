@@ -12,10 +12,10 @@ body {
   background-color: $bg-site;
   color: $text-primary;
   font-family: $font-family-gotham;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  max-width: 120rem;
+  // max-width: 120rem;
   min-height: 100vh;
   margin-bottom: 22.25rem;
 }

@@ -5,8 +5,6 @@
   padding: 14rem 22rem 0 13rem;
   font-family: $font-family-gotham;
   font-weight: $font-weight-book;
-
-  border: 1px solid red;
 }
 
 .coursesHeader{
@@ -75,13 +73,12 @@
 
 .itemContents {
   position: relative;
-  min-height: 400px;
+  min-height: 23.37rem;
 }
 
 .itemContent {
   position: relative;
   width: 60%;
-
 }
 
 .itemTitle {
@@ -92,3 +89,35 @@
 }
 
 
+
+.courseItem {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding-block: 1rem;
+  color: $text-list-title;
+  border-bottom: 1px solid $white;
+  transition: border-color 0.3s ease;
+
+  .courseType {
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+
+  .courseTitle {
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+  }
+
+  &:hover {
+    border-color: $bar-hover;
+
+    .courseTitle,
+    .courseType {
+      color: $text-secondary;
+    }
+  }
+}

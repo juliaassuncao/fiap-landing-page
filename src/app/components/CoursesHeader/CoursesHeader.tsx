@@ -48,10 +48,8 @@ export default function CoursesHeader() {
   };
 
     useEffect(() => {
-    // Para garantir que a referência exista
     const currentItem = itemContentRefs.current[activeItem];
     if (currentItem) {
-      // Anima os cursos filhos ao ativar a aba
       gsap.fromTo(
         currentItem.children,
         { y: -10, opacity: 0 },
