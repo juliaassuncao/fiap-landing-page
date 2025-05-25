@@ -1,3 +1,23 @@
 @use "../../styles/main" as *;
-@import "../../styles/breakpoints.scss"
+@import "../../styles/breakpoints.scss";
 
+.container {
+  width: 100%;
+  padding: 13.125rem;
+
+  border: 1px solid red;
+}
+
+.title {
+  font-weight: $font-weight-book;
+  color: $text-primary;
+  font-size: 5.75rem;
+  letter-spacing: -0.18rem;
+}
+
+.subtitle {
+  font-weight: $font-weight-book;
+  color: $text-secondary;
+  font-size: 1.37rem;
+  margin-left: 0.31rem;
+}
