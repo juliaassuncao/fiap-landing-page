@@ -21,3 +21,9 @@
   font-size: 1.37rem;
   margin-left: 0.31rem;
 }
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
