@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Item } from "./CoursesHeader.interface";
-import styles from "./Courses.module.scss";
+import styles from "./CoursesHeader.module.scss";
 
 const ITEMS: Item[] = [
   {
@@ -46,6 +46,7 @@ export default function CoursesHeader() {
 
   return (
     <div className={styles.container}>
+      {/* === HEADER === */}
       <div className={styles.coursesHeader}>
         <div>
           <h5 className={styles.title}>Cursos</h5>
@@ -64,6 +65,26 @@ export default function CoursesHeader() {
             </button>
           ))}
         </div>
+      </div>
+
+      {/* === CONTEÚDO === */}
+      <div className={styles.tabContents}>
+        {ITEMS.map((item, index) => (
+          <div
+            key={item.title}
+            className={`${styles.tabContent} ${
+              activeItem === index ? styles.active : ""
+            }`}
+          >
+            <h6 className={styles.tabTitle}>{item.title}</h6>
+            {item.courses.map((course, courseIndex) => (
+              <div key={courseIndex} className={styles.courseItem}>
+                <p className={styles.courseTitle}>{course.title}</p>
+                <span className={styles.courseType}>{course.type}</span>
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );
