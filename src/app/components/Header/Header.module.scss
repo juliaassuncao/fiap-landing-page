@@ -1,11 +1,6 @@
 @use "../../styles/main" as *;
 
-%baseStyle {
-  font-family: $font-family-gotham;
-}
-
 %mainStyle {
-  @extend %baseStyle;
   color: $text-primary;
   font-weight: $font-weight-book;
   font-size: 6.87rem;
@@ -42,7 +37,6 @@
 }
 
 .backgroundText {
-  @extend %baseStyle;
   position: absolute;
   top: 28.5rem;
   left: 0;
