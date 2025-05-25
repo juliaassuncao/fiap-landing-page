@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import styles from "./ProgressBar.module.scss"
 
-export default function ProgressBar() {
+export function ProgressBar() {
   const [scrollProgress, setScrollProgress] = useState(0)
 
   useEffect(() => {

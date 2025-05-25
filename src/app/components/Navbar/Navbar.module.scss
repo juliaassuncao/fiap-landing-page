@@ -23,4 +23,8 @@
 
 .logo {
   width: 9rem;
+
+  @include respond-to("md") {
+    width: 7rem;
+  }
 }

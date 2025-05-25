@@ -1,19 +1,17 @@
-import Faq from "./components/Faq/Faq";
-import Intro from "@/app/components/Intro/Intro";
-import Navbar from "@/app/components/Navbar/Navbar";
-import Header from "@/app/components/Header/Header";
-import Courses from "@/app/components/CoursesHeader/CoursesHeader";
+import styles from "./page.module.scss";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
-      <main>
+      <main className={styles.page}>
+        {/* 
+        <Navbar />
         <Header />
         <Intro />
         <Courses />
         <Faq />
+        */}
       </main>
     </>
-  )
+  );
 }

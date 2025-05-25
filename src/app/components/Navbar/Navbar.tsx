@@ -2,11 +2,12 @@
 
 import { useEffect, useState } from "react";
 
+import Link from "next/link";
 import Image from "next/image";
 import styles from "./Navbar.module.scss";
 import ProgressBar from "../ProgressBar/ProgressBar";
 
-export default function Navbar() {
+export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -20,14 +21,20 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : styles.top}`}>
-        <Image
-          src="/svgs/logo-fiap.svg"
-          alt="Logo FIAP"
-          width={144}
-          height={48}
-          className={styles.logo}
-        />
+      <nav
+        className={`${styles.navbar} ${
+          scrolled ? styles.scrolled : styles.top
+        }`}
+      >
+        <Link href="/">
+          <Image
+            src="/svgs/logo-fiap.svg"
+            alt="Logo FIAP"
+            width={144}
+            height={48}
+            className={styles.logo}
+          />
+        </Link>
       </nav>
       <ProgressBar />
     </>

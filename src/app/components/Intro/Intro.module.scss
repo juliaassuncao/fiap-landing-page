@@ -6,7 +6,29 @@
 
   padding-bottom: 114px;
 
-  // border: 1px solid orange;
+  border: 1px solid orange;
+
+@include respond-to("xxs") {
+  .container {
+    white-space: normal;
+    overflow: visible;
+    padding-bottom: 0;
+    border: none;
+  }
+
+  .imageWrapper,
+  .bottomText,
+  .elipse {
+    display: none;
+  }
+
+  .textScrollWrapper,
+  .textTransition,
+  .lineText {
+    display: block;
+  }
+}
+
 }
 
 .topText {
@@ -17,6 +39,7 @@
   .lineText:last-of-type {
     margin-bottom: 4.75rem;
   }
+
 }
 
 .textTransition {

@@ -1,1 +1,10 @@
 @use './styles/main.scss' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  row-gap: 5rem;
+}

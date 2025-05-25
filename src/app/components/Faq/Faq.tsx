@@ -37,19 +37,25 @@ const FAQ_ITEMS: FaqItem[] = [
   },
 ];
 
-export default function Faq() {
+export function Faq() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const handleMouseEnter = (index: number) => {
-    if (window.innerWidth > BREAKPOINTS.sm) {
+    if (window.innerWidth > BREAKPOINTS.md) {
       setHoveredIndex(index);
     }
   };
 
   const handleMouseLeave = () => {
-    if (window.innerWidth > BREAKPOINTS.sm) {
+    if (window.innerWidth > BREAKPOINTS.md) {
       setHoveredIndex(null);
+    }
+  };
+
+  const handleClick = (index: number) => {
+    if (window.innerWidth <= BREAKPOINTS.md) {
+      setActiveIndex(activeIndex === index ? null : index);
     }
   };
 
@@ -71,6 +77,7 @@ export default function Faq() {
             }`}
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={handleMouseLeave}
+            onClick={() => handleClick(index)}
           >
             <p className={styles.question}>{item.question}</p>
             <p className={styles.answer}>{item.answer}</p>

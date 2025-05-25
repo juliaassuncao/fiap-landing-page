@@ -38,7 +38,7 @@ const ITEMS: Item[] = [
   },
 ];
 
-export default function CoursesHeader() {
+export function CoursesHeader() {
   const [activeItem, setActiveItem] = useState(0);
 
   const itemContentRefs = useRef<HTMLDivElement[]>([]);

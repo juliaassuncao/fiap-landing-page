@@ -8,7 +8,7 @@ import styles from "./Intro.module.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Intro() {
+export function Intro() {
   const scrollLeftRef = useRef(null);
   const scrollRightRef = useRef(null);
   const imageRef = useRef(null);

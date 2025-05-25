@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import styles from "./Header.module.scss";
 
-export default function Header() {
+export function Header() {
   const primaryRef = useRef<HTMLSpanElement>(null);
   const secondaryRef = useRef<HTMLSpanElement>(null);
   const backgroundRef = useRef<HTMLSpanElement>(null);
@@ -41,17 +41,18 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-        <div className={styles.mainTitle}>
-          <span ref={primaryRef} className={styles.primaryText}>
-            A Melhor Faculdade
-          </span>
-          <span ref={secondaryRef} className={styles.secondaryText}>
-            de Tecnologia
-          </span>
-        </div>
-        <span ref={backgroundRef} className={styles.backgroundText}>
-          Sobre
+      <div className={styles.mainTitle}>
+        <span ref={primaryRef} className={styles.primaryText}>
+          A Melhor Faculdade
         </span>
+        <span ref={secondaryRef} className={styles.secondaryText}>
+          de Tecnologia
+        </span>
+      </div>
+      <span ref={backgroundRef} className={styles.backgroundText}>
+        SOB
+        <span className={styles.breakLine}>RE</span>
+      </span>
     </header>
   );
 }
