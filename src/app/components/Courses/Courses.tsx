@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
 import { Tab } from "./Courses.interface";
-import styles from "./Courses.module.scss"
+import styles from "./Courses.module.scss";
 
 const TABS: Tab[] = [
   {
@@ -38,10 +38,20 @@ const TABS: Tab[] = [
 
 export default function Courses() {
   return (
-    <section className={styles.container}>
-      <div>
-
+    <div className={styles.container}>
+      <div className={styles.coursesHeader}>
+        <div>
+          <h5 className={styles.title}>Cursos</h5>
+          <h6 className={styles.subtitle}>Cursos de Curta Duração</h6>
+        </div>
+        <div className={styles.menuItem}>
+          {TABS.map((menuItem) => (
+            <button key={menuItem.title} className={`${styles.itemButton}`}>
+              {menuItem.title}
+            </button>
+          ))}
+        </div>
       </div>
-    </section>
-  )
+    </div>
+  );
 }

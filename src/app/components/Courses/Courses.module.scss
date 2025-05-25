@@ -1,26 +1,18 @@
 @use "../../styles/main" as *;
 
 .container {
-  max-width: 84.68rem;
-  height: 36.68rem;
+  width: 100%;
+  padding: 14rem 22rem 0 13rem;
   font-family: $font-family-gotham;
   font-weight: $font-weight-book;
-  margin-left: 13.25rem;
-  margin-top: 228px;
-
-  display: flex;
-  justify-content: space-between;
 
   border: 1px solid red;
 }
-
-.titleWrapper {}
 
 .title {
   font-weight: $font-weight-book;
   color: $text-primary;
   font-size: 5.75rem;
-  line-height: 1.68rem;
   letter-spacing: -0.18rem;
 }
 
@@ -29,17 +21,33 @@
   color: $text-secondary;
   font-size: 1.37rem;
   letter-spacing: 0.18rem;
-  margin-top: 0.81rem;
   margin-left: 0.31rem;
 }
 
-.menu {
-  color: $text-primary;
-  font-weight: $font-weight-medium;
-  list-style: none;
+.menuItem {
+  gap: 6.125rem;
   display: flex;
+  margin-top: 2.56rem;
+  position: relative;
 }
 
-.menuItem {
+.coursesHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 
+}
+
+.itemButton {
+  background: none;
+  border: none;
+  color: $text-list-title;
+  font-size: 1.06rem;
+  // padding: 0.7rem 0;
+  position: relative;
+  cursor: pointer;
+  text-transform: uppercase;
+  height: 1.875rem;
+
+  border: 1px solid blue;
 }
