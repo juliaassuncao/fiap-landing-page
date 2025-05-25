@@ -40,19 +40,11 @@ export function Header() {
   }, []);
 
   return (
-    <header className={styles.header}>
-      <div className={styles.mainTitle}>
-        <span ref={primaryRef} className={styles.primaryText}>
-          A Melhor Faculdade
-        </span>
-        <span ref={secondaryRef} className={styles.secondaryText}>
-          de Tecnologia
-        </span>
-      </div>
-      <span ref={backgroundRef} className={styles.backgroundText}>
-        SOB
-        <span className={styles.breakLine}>RE</span>
-      </span>
-    </header>
+    <div className={styles.titleContainer}>
+      <h1 className={styles.title}>
+        <span>A Melhor Faculdade</span>
+        <span>de Tecnologia</span>
+      </h1>
+    </div>
   );
 }

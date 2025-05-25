@@ -6,5 +6,11 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background-color: $bg-site;
+  padding-top: 15rem;
   row-gap: 5rem;
+  
+  @include respond-to("sm") {
+    padding-top: 10rem;
+  }
 }
