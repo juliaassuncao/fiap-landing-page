@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import Image from "next/image";
 import styles from "./Navbar.module.scss";
-import ProgressBar from "./ProgressBar";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
