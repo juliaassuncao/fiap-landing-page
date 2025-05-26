@@ -1,40 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🧩 FIAP - Landing Page
 
-## Getting Started
+Landing page desenvolvida como parte de uma avaliação técnica para vaga de Front-End, com foco em performance, design responsivo e interatividade.
 
-First, run the development server:
+
+## 🧪 Tecnologias
+
+Este projeto foi desenvolvido com as seguintes tecnologias:
+
+- [React](https://react.dev)
+- [Next.js](https://nextjs.org)
+- [TypeScript](https://www.typescriptlang.org)
+- [SASS](https://sass-lang.com/)
+- [GSAP](https://gsap.com)
+
+## 💻 Requisitos
+
+Antes de começar, verifique se você tem instalado:
+
+- [Node.js](https://nodejs.org/) (recomendado: versão 18 ou superior)
+- [Yarn](https://yarnpkg.com) ou [npm](https://www.npmjs.com/)
+
+## 📸 Layout de Referência
+
+O design desta página foi baseado em um protótipo fornecido no Figma.  
+[Visualizar protótipo no Figma](https://www.figma.com/design/aAAuhPpxsfmd1Lb18R2qcz/Teste-T%C3%A9cnico-Front-end---FIAP?node-id=0-1&p=f&t=b63ygSEUA8wq5rSK-0)
+
+## 🚀 Como rodar o projeto
+
+1. Clone o repositório:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/juliaassuncao/fiap-landing-page
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Acesse a pasta do projeto:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+cd fiap-landing-page
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+3. Instale as dependências:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+```bash
+yarn install
+# ou
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Inicie o servidor de desenvolvimento:
 
-## Learn More
+```bash
+yarn dev
+# ou
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+5. Abra no navegador:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+```
+http://localhost:3000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👩‍💻 Autora
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+Desenvolvido por **[Julia Assunção]**  
+📧 [email@exemplo.com](mailto:juliaassuncao256@gmail.com)  
+💼 [LinkedIn](https://www.linkedin.com/in/julia-assun%C3%A7%C3%A3o-8128aa158/)

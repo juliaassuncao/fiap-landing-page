@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "./main.scss" as *;
 
 @import url("/fonts/gotham.css");
@@ -8,6 +9,7 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   background-color: $bg-site;
   color: $text-primary;
@@ -15,4 +17,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+
+  overflow-y: auto;
+  scroll-behavior: smooth;
+
+  Estilo da scrollbar
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $black;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $bar-hover;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: color.scale($bar-hover, $lightness: -10%);
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: $bar-hover $black;
 }

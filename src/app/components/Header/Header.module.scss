@@ -76,7 +76,7 @@
     text-align: left;
 
     @include respond-to("sm") {
-      transform: translateY(-1rem);
+      transform: translateY(-2rem);
     }
 
     &:first-child {
@@ -96,10 +96,6 @@
     }
   }
 
-  @include respond-to("sm") {
-    font-size: clamp(2.25rem, 5vw, 2.5rem);
-  }
-
   @include respond-to("720p") {
     top: 40%;
   }
@@ -109,6 +105,7 @@
   }
 
   @include respond-to("sm") {
-    top: 40%;
+    font-size: clamp(2.25rem, 5vw, 2.5rem);
+    top: 30%;
   }
 }
