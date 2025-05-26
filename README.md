@@ -1,6 +1,12 @@
 # 🧩 FIAP - Landing Page
 
-Landing page desenvolvida como parte de uma avaliação técnica para vaga de Front-End, com foco em performance, design responsivo e interatividade.
+Landing page desenvolvida como parte de uma avaliação técnica para vaga de Front-End Junior, com foco em performance, design responsivo e interatividade.
+
+### 🖼️ Preview
+
+| Desktop | Mobile |
+|--------|--------|
+| ![Desktop](./public/desktop-image.png) | ![Mobile](./public/mobile-image.png) |
 
 
 ## 🧪 Tecnologias
