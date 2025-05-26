@@ -12,9 +12,8 @@ export function WaterAnimation() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const frameRef = useRef(0); // evita render desnecessário
+  const frameRef = useRef(0);
 
-  // Observa quando a seção está visível (50% ou mais)
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -27,7 +26,6 @@ export function WaterAnimation() {
     return () => observer.disconnect();
   }, []);
 
-  // Controla animação conforme o scroll
   useEffect(() => {
     if (!isVisible) return;
 

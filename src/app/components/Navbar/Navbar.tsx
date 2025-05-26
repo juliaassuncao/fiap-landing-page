@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 export function Navbar() {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +16,7 @@ export function Navbar() {
       const scrollPercentage = (currentScroll / windowHeight) * 100;
 
       setScrollProgress(scrollPercentage);
+      setIsScrolled(currentScroll > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -24,7 +26,9 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className={styles.header}>
+    <header
+      className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}
+    >
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
           <Image
