@@ -51,7 +51,8 @@ export function Courses() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.desktopTabs}>
+      {/* === ABAS DOS CONTEÚDOS === */}
+      <div className={styles.desktopTabs} role="tablist" aria-label="Categorias de cursos">
         <div>
           <h5 className={styles.title}>Cursos</h5>
           <h6 className={styles.subtitle}>Cursos de Curta Duração</h6>
@@ -60,28 +61,33 @@ export function Courses() {
           {ITEMS.map((tab, index) => (
             <button
               key={tab.title}
-              className={`${styles.tabButton} ${
-                activeTab === index ? styles.active : ""
-              }`}
+              className={`${styles.tabButton} ${activeTab === index ? styles.active : ""}`}
               onClick={() => handleTabClick(index)}
+              role="tab"
+              aria-selected={activeTab === index}
+              aria-controls={`tab-panel-${index}`}
+              id={`tab-${index}`}
             >
               {tab.title}
             </button>
           ))}
         </div>
       </div>
-
+      
+      {/* === CONTEÚDO DOS CURSOS === */}
       <div className={styles.tabContents}>
         {ITEMS.map((tab, index) => (
           <div
             key={tab.title}
-            className={`${styles.tabContent} ${
-              activeTab === index ? styles.active : ""
-            }`}
+            className={`${styles.tabContent} ${activeTab === index ? styles.active : ""}`}
+            role="tabpanel"
+            id={`tab-panel-${index}`}
+            aria-labelledby={`tab-${index}`}
+            hidden={activeTab !== index}
           >
             <h6 className={styles.tabTitle}>{tab.title}</h6>
-            {tab.courses.map((course, courseIndex) => (
-              <div key={courseIndex} className={styles.courseItem}>
+            {tab.courses.map((course) => (
+              <div key={course.title} className={styles.courseItem}>
                 <p className={styles.courseTitle}>{course.title}</p>
                 <span className={styles.courseType}>{course.type}</span>
               </div>
@@ -90,17 +96,19 @@ export function Courses() {
         ))}
       </div>
 
+      {/* === ACCORDION DO MOBILE === */}
       <div className={styles.mobileAccordion}>
         {ITEMS.map((tab, index) => (
           <div
             key={tab.title}
-            className={`${styles.accordionItem} ${
-              expandedMobile === index ? styles.expanded : ""
-            }`}
+            className={`${styles.accordionItem} ${expandedMobile === index ? styles.expanded : ""}`}
           >
             <button
               className={styles.accordionHeader}
               onClick={() => handleMobileClick(index)}
+              aria-expanded={expandedMobile === index}
+              aria-controls={`accordion-panel-${index}`}
+              id={`accordion-header-${index}`}
             >
               {tab.title}
               <div className={styles.expandIcon}>
@@ -109,9 +117,15 @@ export function Courses() {
               </div>
             </button>
 
-            <div className={styles.accordionContent}>
-              {tab.courses.map((course, courseIndex) => (
-                <div key={courseIndex} className={styles.courseItem}>
+            <div
+              id={`accordion-panel-${index}`}
+              className={styles.accordionContent}
+              role="region"
+              aria-labelledby={`accordion-header-${index}`}
+              hidden={expandedMobile !== index}
+            >
+              {tab.courses.map((course) => (
+                <div key={course.title} className={styles.courseItem}>
                   <p className={styles.courseTitle}>{course.title}</p>
                   <span className={styles.courseType}>{course.type}</span>
                 </div>
