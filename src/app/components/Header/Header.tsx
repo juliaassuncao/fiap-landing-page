@@ -13,25 +13,23 @@ export function Header() {
     const tl = gsap.timeline();
 
     tl.from(primaryRef.current, {
-      opacity: 1,
+      opacity: 0,
       y: -20,
-      duration: 0.4,
+      duration: 0.6,
       ease: "power3.out",
-    }).from(
-      secondaryRef.current,
-      {
+    })
+      .from(secondaryRef.current, {
         opacity: 0,
         y: -20,
-        duration: 0.4,
+        duration: 0.6,
         ease: "power3.out",
-      },
-      "-=0.2"
-    );
-    tl.from(backgroundRef.current, {
-      opacity: 0,
-      duration: 0.7,
-      ease: "sine.out",
-    });
+      })
+      .from(backgroundRef.current, {
+        opacity: 0,
+        duration: 1.2,
+        ease: "sine.out",
+      });
+
   }, []);
 
   return (
