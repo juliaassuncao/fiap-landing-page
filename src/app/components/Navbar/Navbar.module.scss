@@ -12,6 +12,10 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease;
+
+  @include respond-to("ultra") {
+    height: 10rem;
+  }
 }
 
 .container {

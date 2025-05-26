@@ -16,6 +16,9 @@
   gap: 1rem;
   margin-bottom: 4.75rem;
 
+  @include respond-to("sm") {
+    margin-bottom: 10rem;
+  }
 }
 
 .textRow {
@@ -37,8 +40,12 @@
     text-transform: uppercase;
     transition: transform 0.1s linear;
 
-    @include respond-to("xl") {
-      font-size: 5.5rem;
+    @include respond-to("ultra") {
+    font-size: 8rem;
+  }
+
+    @include respond-to("hdplus") {
+      font-size: 3rem;
     }
 
     @include respond-to("lg") {
@@ -50,7 +57,7 @@
     }
 
     @include respond-to("sm") {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   }
 }
