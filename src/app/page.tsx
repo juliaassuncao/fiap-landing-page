@@ -3,6 +3,7 @@ import { Faq } from "./components/Faq/Faq";
 import { Header } from "./components/Header/Header";
 import { Intro } from "./components/Intro/Intro";
 import { Navbar } from "./components/Navbar/Navbar";
+import { WaterAnimation } from "./components/WaterAnimation/WaterAnimation";
 import styles from "./page.module.scss";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         <Navbar />
         <Header />
         <Intro />
+        <WaterAnimation />
         <Courses />
         <Faq />
       </main>

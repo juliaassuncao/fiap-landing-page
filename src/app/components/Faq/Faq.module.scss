@@ -38,7 +38,8 @@
 .faqGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  column-gap: 7rem;
+  row-gap: 3rem;
 
   @include respond-to("lg") {
     grid-template-columns: repeat(2, 1fr);
@@ -52,7 +53,7 @@
 
 .faqItem {
   position: relative;
-  padding: 2rem 0;
+  padding-top: 2rem;
   cursor: pointer;
   overflow: hidden;
 
