@@ -19,7 +19,7 @@ export function WaterAnimation() {
       ([entry]) => {
         setIsVisible(entry.intersectionRatio > 0.5);
       },
-      { threshold: Array.from({ length: 101 }, (_, i) => i / 100) } // 0 → 1.0
+      { threshold: Array.from({ length: 101 }, (_, i) => i / 100) }
     );
 
     if (containerRef.current) observer.observe(containerRef.current);
