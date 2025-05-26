@@ -1,98 +1,52 @@
-$breakpoint-ultra: 240rem;    // 3840px
-$breakpoint-uhd: 160rem;      // 2560px
-$breakpoint-ultrawide: 160rem; // 2560px
-$breakpoint-fhd: 120rem;      // 1920px
-$breakpoint-hdplus: 100rem;   // 1600px
-$breakpoint-hd: 90rem;        // 1440px
-$breakpoint-small-hd: 85.375rem; // 1366px
-$breakpoint-720p: 80rem;      // 1280px
-$breakpoint-ipad-pro: 64rem;  // 1024px
-$breakpoint-md: 51.25rem;     // 820px (iPad Air)
-$breakpoint-sm: 48rem;        // 768px (iPad)
-$breakpoint-xs: 25.875rem;    // 414px (iPhone 8 Plus)
-$breakpoint-mobile: 22.5rem;  // 360px (Galaxy S5)
-$breakpoint-xxs: 20rem;       // 320px (iPhone 5/SE)
+// ==============================================
+// Breakpoints
+// ==============================================
+
+$breakpoints: (
+  "ultra": 240rem,           // 3840px
+  "uhd": 160rem,             // 2560px
+  "ultrawide": 160rem,       // 2560px
+  "hdplus": 100rem,          // 1600px
+  "hd": 90rem,               // 1440px
+  "small-hd": 85.375rem,     // 1366px
+  "720p": 80rem,             // 1280px
+  "ipad-pro": 64rem,         // 1024px
+  "md": 51.25rem,            // 820px (iPad Air)
+  "sm": 48rem,               // 768px (iPad)
+  "xs": 25.875rem,           // 414px (iPhone 8 Plus)
+  "mobile": 22.5rem,         // 360px (Galaxy S5)
+  "xxs": 20rem               // 320px (iPhone 5/SE)
+);
+
+// ==============================================
+// Mixin de Media Queries
+// ==============================================
 
 @mixin respond-to($breakpoint) {
-  @if $breakpoint == "ultra" {
-    @media (max-width: $breakpoint-ultra) {
-      @content;
-    }
-  }
-  @if $breakpoint == "uhd" {
-    @media (max-width: $breakpoint-uhd) {
-      @content;
-    }
-  }
-  @if $breakpoint == "ultrawide" {
-    @media (max-width: $breakpoint-ultrawide) {
-      @content;
-    }
-  }
-  @if $breakpoint == "fhd" {
-    @media (max-width: $breakpoint-fhd) {
-      @content;
-    }
-  }
-  @if $breakpoint == "hdplus" {
-    @media (max-width: $breakpoint-hdplus) {
-      @content;
-    }
-  }
-  @if $breakpoint == "hd" {
-    @media (max-width: $breakpoint-hd) {
-      @content;
-    }
-  }
-  @if $breakpoint == "small-hd" {
-    @media (max-width: $breakpoint-small-hd) {
-      @content;
-    }
-  }
-  @if $breakpoint == "720p" {
-    @media (max-width: $breakpoint-720p) {
-      @content;
-    }
-  }
-  @if $breakpoint == "ipad-pro" {
-    @media (max-width: $breakpoint-ipad-pro) {
-      @content;
-    }
-  }
-  @if $breakpoint == "md" {
-    @media (max-width: $breakpoint-md) {
-      @content;
-    }
-  }
-  @if $breakpoint == "sm" {
-    @media (max-width: $breakpoint-sm) {
-      @content;
-    }
-  }
-  @if $breakpoint == "xs" {
-    @media (max-width: $breakpoint-xs) {
-      @content;
-    }
-  }
-  @if $breakpoint == "mobile" {
-    @media (max-width: $breakpoint-mobile) {
-      @content;
-    }
-  }
-  @if $breakpoint == "xxs" {
-    @media (max-width: $breakpoint-xxs) {
+  // Se estiver no mapa de breakpoints
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
       @content;
     }
   }
 
-  @if $breakpoint == "landscape" {
+  // Casos especiais
+  @else if $breakpoint == "iphone-5-se-landscape" {
+    @media (orientation: landscape) and (max-width: 568px) and (max-height: 320px) {
+      @content;
+    }
+  }
+  @else if $breakpoint == "landscape" {
     @media (orientation: landscape) {
       @content;
     }
   }
-  @if $breakpoint == "portrait" {
+  @else if $breakpoint == "portrait" {
     @media (orientation: portrait) {
       @content;
     }
+  }
+  @else {
+    @warn "⚠️ Breakpoint `#{$breakpoint}` não está definido no mapa!";
   }
 }
