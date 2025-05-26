@@ -30,10 +30,6 @@
   flex-direction: column;
   font-weight: $font-weight-book;
 
-  @include respond-to("ultra") {
-    font-size: 15rem;
-  }
-
   @include respond-to("hdplus") {
     font-size: 5rem;
   } 
@@ -117,14 +113,9 @@
   word-break: break-word;
   pointer-events: none;
 
-  @include respond-to("ultra") {
-    font-size: 50rem;
-    top: 37%;
-  }
-
   @include respond-to("hdplus") {
     font-size: 18rem;
-    top: 40%;
+    top: 37%;
   }
 
   @include respond-to("720p") {

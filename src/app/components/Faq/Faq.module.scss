@@ -4,11 +4,6 @@
   width: 100%;
   padding: 0 10rem 8rem;
 
-  @include respond-to("ultra") {
-    padding: 15rem 50rem;
-  }
-
-
   @include respond-to("md") {
     padding: 0 1rem 4rem 1rem;
   }
@@ -24,10 +19,6 @@
   font-weight: normal;
   margin-bottom: 0.5rem;
 
-  @include respond-to("ultra") {
-    font-size: 10rem;
-  }
-
   @include respond-to("md") {
     font-size: 3rem;
   }
@@ -38,10 +29,6 @@
   color: $text-secondary;
   font-weight: normal;
   margin-bottom: 6rem;
-
-  @include respond-to("ultra") {
-    font-size: 3rem;
-  }
 
   @include respond-to("sm") {
     margin-bottom: 3rem;
@@ -122,10 +109,6 @@
   font-size: 1.25rem;
   color: $text-faq;
   font-weight: $font-weight-medium;
-
-  @include respond-to("ultra") {
-    font-size: 2rem;
-  }
 }
 
 .answer {
@@ -138,10 +121,6 @@
   transition: all 0.6s ease;
   margin-top: 1rem;
 
-  @include respond-to("ultra") {
-    font-size: 1.5rem;
-  }
-  
   @include respond-to("md") {
     height: 0;
     margin: 0;

@@ -4,10 +4,6 @@
   width: 100%;
   padding: 0 10rem 20.125rem;
 
-  @include respond-to("ultra") {
-    padding: 15rem 50rem;
-  }
-
   @include respond-to("md") {
     padding: 0 1rem;
   }
@@ -17,10 +13,6 @@
   font-size: 4rem;
   color: $text-primary;
   font-weight: $font-weight-book;
-
-  @include respond-to("ultra") {
-    font-size: 10rem;
-  }
 
   @include respond-to("md") {
     font-size: 3rem;
@@ -34,11 +26,6 @@
   font-weight: $font-weight-book;
   margin-block: 5rem;
 
-  @include respond-to("ultra") {
-    font-size: 4rem;
-    margin-block: 7rem;
-  }
-
   @include respond-to("md") {
     display: none;
   }
@@ -48,10 +35,6 @@
   font-size: 1.2rem;
   color: $text-secondary;
   font-weight: $font-weight-book;
-
-  @include respond-to("ultra") {
-    font-size: 3rem;
-  }
 }
 
 .desktopTabs {
@@ -97,9 +80,6 @@
   text-transform: uppercase;
   height: 40px;
 
-  @include respond-to("ultra") {
-    font-size: 3rem;
-  }
 
   &::before {
     content: "";
@@ -140,10 +120,6 @@
   visibility: hidden;
   transform: translateY(-20px);
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-
-  @include respond-to("ultra") {
-    width: 50%;
-  }
 
   @include respond-to("720p") {
     width: 65%;
@@ -290,10 +266,6 @@
     font-size: 1.3rem;
     color: $text-list-title;
     transition: color 0.3s ease;
-
-    @include respond-to("ultra") {
-      font-size: 2rem;
-    }
 
     @include respond-to("md") {
       font-size: 1rem;
