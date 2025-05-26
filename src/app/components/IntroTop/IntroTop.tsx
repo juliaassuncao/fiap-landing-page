@@ -3,57 +3,48 @@
 import { useEffect, useRef } from 'react';
 import styles from './IntroTop.module.scss';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
+type MarqueeRowProps = {
+  text: string;
+  direction: 'left' | 'right';
+  duration?: number;
+};
 
-const TEXT1 = "Cursos e imersões. Uma nova cultura de mercado.";
-const TEXT2 = "Cursos e imersões. Uma nova cultura de mercado.";
-
-export function IntroTop() {
-  const firstRowRef = useRef<HTMLDivElement>(null);
-  const secondRowRef = useRef<HTMLDivElement>(null);
+function MarqueeRow({ text, direction, duration = 50 }: MarqueeRowProps) {
+  const rowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (firstRowRef.current) {
-      gsap.to(firstRowRef.current, {
-        xPercent: -50,
+    if (rowRef.current) {
+      gsap.to(rowRef.current, {
+        xPercent: direction === 'left' ? -50 : 50,
         repeat: -1,
-        duration: 50,
+        duration,
         ease: "linear",
       });
     }
+  }, [direction, duration]);
 
-    if (secondRowRef.current) {
-      gsap.to(secondRowRef.current, {
-        xPercent: 50,
-        repeat: -1,
-        duration: 50,
-        ease: "linear",
-      });
-    }
-  }, []);
+  return (
+    <div className={styles.textRow}>
+      <div ref={rowRef} className={styles.textContent}>
+        {Array(4).fill(null).map((_, i) => (
+          <span key={i}>{text}&nbsp;&nbsp;&nbsp;</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function IntroTop() {
+  const TEXT1 = "Cursos e imersões. Uma nova cultura de mercado.";
+  const TEXT2 = "Tecnologia, iovação e negócios. Presente e futuro.";
 
   return (
     <section className={styles.header}>
       <div className={styles.headerText}>
-        <div className={styles.textRow}>
-          <div ref={firstRowRef} className={styles.textContent}>
-            <span>{TEXT1}&nbsp;&nbsp;&nbsp;</span>
-            <span>{TEXT1}&nbsp;&nbsp;&nbsp;</span>
-            <span>{TEXT1}&nbsp;&nbsp;&nbsp;</span>
-            <span>{TEXT1}&nbsp;&nbsp;&nbsp;</span>
-          </div>
-        </div>
+        <MarqueeRow text={TEXT1} direction="left" />
         <div className={styles.line}></div>
-        <div className={styles.textRow}>
-          <div ref={secondRowRef} className={styles.textContent}>
-            <span>{TEXT2}&nbsp;&nbsp;&nbsp;</span>
-            <span>{TEXT2}&nbsp;&nbsp;&nbsp;</span>
-            <span>{TEXT2}&nbsp;&nbsp;&nbsp;</span>
-            <span>{TEXT2}&nbsp;&nbsp;&nbsp;</span>
-          </div>
-        </div>
+        <MarqueeRow text={TEXT2} direction="right" />
         <div className={styles.line}></div>
       </div>
     </section>
