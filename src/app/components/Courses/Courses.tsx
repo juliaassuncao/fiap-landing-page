@@ -121,7 +121,6 @@ export function Courses() {
               className={styles.accordionContent}
               role="region"
               aria-labelledby={`accordion-header-${index}`}
-              hidden={expandedMobile !== index}
             >
               {tab.courses.map((course) => (
                 <div key={course.title} className={styles.courseItem}>

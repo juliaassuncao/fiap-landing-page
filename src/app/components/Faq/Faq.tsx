@@ -1,8 +1,9 @@
 "use client";
+
 import { useState } from "react";
 import styles from "./Faq.module.scss";
 import type { FaqItem } from "./Faq.interface";
-import { BREAKPOINTS } from "@/app/constants/breakpoints";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const FAQ_ITEMS: FaqItem[] = [
   {
@@ -32,25 +33,20 @@ const FAQ_ITEMS: FaqItem[] = [
 ];
 
 export function Faq() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [openedIndex, setOpenedIndex] = useState<number | null>(null);
+  const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
+  const isMobile = useIsMobile();
 
   const handleMouseEnter = (index: number) => {
-    if (window.innerWidth > BREAKPOINTS.md) {
-      setHoveredIndex(index);
-    }
+    if (!isMobile) setHighlightedIndex(index);
   };
 
   const handleMouseLeave = () => {
-    if (window.innerWidth > BREAKPOINTS.md) {
-      setHoveredIndex(null);
-    }
+    if (!isMobile) setHighlightedIndex(null);
   };
 
   const handleClick = (index: number) => {
-    if (window.innerWidth <= BREAKPOINTS.md) {
-      setActiveIndex(activeIndex === index ? null : index);
-    }
+    if (isMobile) setOpenedIndex(openedIndex === index ? null : index);
   };
 
   return (
@@ -59,21 +55,31 @@ export function Faq() {
       <p className={styles.subtitle}>Dúvidas Frequentes</p>
 
       <div className={styles.faqGrid}>
-        {FAQ_ITEMS.map((item, index) => (
-          <div
-            key={index}
-            className={`${styles.faqItem} ${
-              (hoveredIndex === index || activeIndex === index) ? styles.active : ""
-            }`}
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={handleMouseLeave}
-            onClick={() => handleClick(index)}
-          >
-            <p className={styles.question}>{item.question}</p>
-            <p className={styles.answer}>{item.answer}</p>
-          </div>
-        ))}
+        {FAQ_ITEMS.map((item, index) => {
+          const isActive = isMobile
+            ? openedIndex === index
+            : highlightedIndex === index;
+
+          return (
+            <div
+              key={index}
+              className={`${styles.faqItem} ${isActive ? styles.active : ""}`}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+              onClick={() => handleClick(index)}
+              role="button"
+              aria-expanded={isActive}
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") handleClick(index);
+              }}
+            >
+              <p className={styles.question}>{item.question}</p>
+              <p className={styles.answer}>{item.answer}</p>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
-} 
+}
