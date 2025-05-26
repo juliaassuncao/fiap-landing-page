@@ -83,7 +83,6 @@ export function Courses() {
             role="tabpanel"
             id={`tab-panel-${index}`}
             aria-labelledby={`tab-${index}`}
-            hidden={activeTab !== index}
           >
             <h6 className={styles.tabTitle}>{tab.title}</h6>
             {tab.courses.map((course) => (
