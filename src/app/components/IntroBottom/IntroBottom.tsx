@@ -1,45 +1,84 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import styles from "./IntroBottom.module.scss";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from 'next/image';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import styles from './IntroBottom.module.scss';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TEXT1 = "Skills • Conhecimento •\u00A0";
-const TEXT2 = "Muito. Muito além dos tutoriais.\u00A0";
+type MarqueeRowProps = {
+  text: string;
+  direction: 'left' | 'right';
+  className?: string;
+};
+
+function MarqueeRow({ text, direction, className }: MarqueeRowProps) {
+  const rowRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!rowRef.current) return;
+
+    gsap.to(rowRef.current, {
+      x: direction === 'left'
+        ? () => `-${rowRef.current!.scrollWidth / 2}px`
+        : () => `${rowRef.current!.scrollWidth / 2}px`,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: rowRef.current,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1,
+      },
+    });
+  }, [direction]);
+
+  return (
+    <div className={styles.textRow}>
+      <div ref={rowRef} className={`${styles.textContent} ${className || ''}`}>
+        {Array(3).fill(null).map((_, i) => (
+          <span key={i}>{text}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const TEXT1 = 'Skills • Conhecimento •\u00A0';
+const TEXT2 = 'Muito. Muito além dos tutoriais.\u00A0';
 
 export function IntroBottom() {
-  const imageRef = useRef(null);
+  const imageRef = useRef<HTMLImageElement | null>(null);
   const firstRowRef = useRef<HTMLDivElement>(null);
   const secondRowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-        gsap.fromTo(
-      imageRef.current,
-      { opacity: 0, y: -100 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        scrollTrigger: {
-          trigger: imageRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse"
+    if (imageRef.current) {
+      gsap.fromTo(
+        imageRef.current,
+        { opacity: 0, y: -100 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          scrollTrigger: {
+            trigger: imageRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none reverse',
+          },
         }
-      }
-    );
+      );
+    }
 
     if (firstRowRef.current) {
       gsap.to(firstRowRef.current, {
         x: () => `-${firstRowRef.current!.scrollWidth / 2}px`,
-        ease: "none",
+        ease: 'none',
         scrollTrigger: {
           trigger: firstRowRef.current,
-          start: "top bottom",
-          end: "bottom top",
+          start: 'top bottom',
+          end: 'bottom top',
           scrub: 1,
         },
       });
@@ -48,11 +87,11 @@ export function IntroBottom() {
     if (secondRowRef.current) {
       gsap.to(secondRowRef.current, {
         x: () => `${secondRowRef.current!.scrollWidth / 2}px`,
-        ease: "none",
+        ease: 'none',
         scrollTrigger: {
           trigger: secondRowRef.current,
-          start: "top bottom",
-          end: "bottom top",
+          start: 'top bottom',
+          end: 'bottom top',
           scrub: 1,
         },
       });
@@ -62,35 +101,22 @@ export function IntroBottom() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.imageContainer}>
-
-          <Image
+        <Image
           ref={imageRef}
-            src="/imgs/intro.png"
-            alt="Imagem em em preto e branco. Mulher oriental de cabelo curto sentada virada olhando pro lado com a mão apoiada na boca e usando fone de ouvido."
-            fill
-            style={{ objectFit: 'cover' }}
-            priority
-            sizes="100vw"
-          />
-
+          src="/imgs/intro.png"
+          alt="Imagem em preto e branco. Mulher oriental de cabelo curto sentada virada olhando pro lado com a mão apoiada na boca e usando fone de ouvido."
+          fill
+          style={{ objectFit: 'cover' }}
+          priority
+          sizes="100vw"
+        />
       </div>
 
       <div className={styles.textWrapper}>
-        <div className={styles.textRow}>
-          <div ref={firstRowRef} className={styles.textContent}>
-            <span>{TEXT1}</span>
-            <span>{TEXT1}</span>
-            <span>{TEXT1}</span>
-          </div>
-        </div>
-        <div className={styles.textRow}>
-          <div ref={secondRowRef} className={styles.textContent}>
-            <span className={styles.text2}>{TEXT2}</span>
-            <span className={styles.text2}>{TEXT2}</span>
-            <span className={styles.text2}>{TEXT2}</span>
-          </div>
-        </div>
+        <MarqueeRow text={TEXT1} direction="left" />
+        <MarqueeRow text={TEXT2} direction="right" className={styles.text2} />
       </div>
     </div>
   );
 }
+
