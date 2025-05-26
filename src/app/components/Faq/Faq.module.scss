@@ -1,9 +1,8 @@
-@use "../../styles/main" as *;
-@import "../../styles/breakpoints.scss";
+@use "../../styles/main.scss" as *;
 
 .container {
   width: 100%;
-  padding: 10rem 13.125rem;
+  padding: 4rem 10rem;
 
   @include respond-to("xl") {
     padding: 4rem 5rem;
@@ -19,10 +18,10 @@
 }
 
 .title {
-  font-size: 5.75rem;
+  font-size: 4rem;
   color: $text-primary;
-  font-weight: $font-weight-book;
-  letter-spacing: -0.18rem;
+  font-weight: normal;
+  margin-bottom: 0.5rem;
 
   @include respond-to("md") {
     font-size: 3rem;
@@ -30,11 +29,10 @@
 }
 
 .subtitle {
-  font-size: 1.37rem;
+  font-size: 1.2rem;
   color: $text-secondary;
-  font-weight: $font-weight-book;
-  margin-left: 0.31rem;
-  margin-bottom: 7.875rem;
+  font-weight: normal;
+  margin-bottom: 4rem;
 }
 
 .faqGrid {
@@ -54,37 +52,31 @@
 
 .faqItem {
   position: relative;
-  padding-top: 1.875rem;
+  padding: 2rem 0;
   cursor: pointer;
   overflow: hidden;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 4.06rem;
-    height: 0.125rem;
+    width: 2rem;
+    height: 1px;
     background: $bar-default;
+    transition: all 0.6s ease;
   }
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 4.06rem; // Estado inicial fixo
+    width: 0;
     height: 2px;
-    background: $bar-default; // Cor padrão ao "voltar"
-    transition: width 0.3s ease, background 0.3s ease;
-    transform-origin: left;
-  }
-
-  // Aumenta largura e muda cor no hover ou quando ativo
-  &:hover::after,
-  &.active::after {
-    width: 100%;
     background: $bar-hover;
+    transition: width 0.6s ease;
+    transform-origin: left;
   }
 
   &.active {
@@ -92,13 +84,17 @@
       width: 0;
     }
 
+    &::after {
+      width: 100%;
+    }
+
     .question {
-      color: $text-faq-hover;
+      color: $text-primary;
     }
 
     .answer {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(0);
       visibility: visible;
 
       @include respond-to("md") {
@@ -120,13 +116,13 @@
 .answer {
   font-size: 1rem;
   color: $text-faq;
-  line-height: 1.18rem;
+  line-height: 1.5;
   opacity: 0;
-  transform: translateX(-10px);
+  transform: translateY(-10px);
   visibility: hidden;
   transition: all 0.6s ease;
   margin-top: 1rem;
-
+  
   @include respond-to("md") {
     height: 0;
     margin: 0;
@@ -136,4 +132,4 @@
     overflow: hidden;
     transition: all 0.6s ease;
   }
-}
+} 

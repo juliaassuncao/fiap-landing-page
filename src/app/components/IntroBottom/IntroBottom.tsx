@@ -1,68 +1,79 @@
-'use client'
-import Image from 'next/image';
-import { useEffect, useRef } from 'react';
-import styles from './IntroBottom.module.scss';
+"use client";
 
-const TEXT1 = "SKILLS • CONHECIMENTO •\u00A0";
-const TEXT2 = "MUITO. MUITO ALÉM DOS TUTORIAIS\u00A0";
+import Image from "next/image";
+import styles from "./IntroBottom.module.scss";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const TEXT1 = "Skills • Conhecimento •\u00A0";
+const TEXT2 = "Muito. Muito além dos tutoriais.\u00A0";
 
 export function IntroBottom() {
+  const imageRef = useRef(null);
   const firstRowRef = useRef<HTMLDivElement>(null);
   const secondRowRef = useRef<HTMLDivElement>(null);
-  const lastScrollY = useRef(0);
-  const scrollMultiplier = 1.5;
-  const totalScroll = useRef(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const scrollDelta = currentScrollY - lastScrollY.current;
-      
-      if (firstRowRef.current && secondRowRef.current) {
-        totalScroll.current += Math.abs(scrollDelta);
-        
-        if (totalScroll.current > 100) {
-          const moveAmount = scrollDelta * scrollMultiplier;
-          
-          const firstTransform = parseFloat(firstRowRef.current.style.transform?.match(/-?\d+\.?\d*/)?.[0] || '0');
-          const secondTransform = parseFloat(secondRowRef.current.style.transform?.match(/-?\d+\.?\d*/)?.[0] || '0');
-          
-          const newFirstTransform = firstTransform - moveAmount;
-          const newSecondTransform = secondTransform + moveAmount;
-          
-          firstRowRef.current.style.transform = `translateX(${newFirstTransform}px)`;
-          secondRowRef.current.style.transform = `translateX(${newSecondTransform}px)`;
-          
-          const GAP = 64;
-          const textWidth = firstRowRef.current.children[0].clientWidth + GAP;
-          
-          if (Math.abs(newFirstTransform) >= textWidth) {
-            firstRowRef.current.style.transform = 'translateX(0)';
-          }
-          if (Math.abs(newSecondTransform) >= textWidth) {
-            secondRowRef.current.style.transform = 'translateX(0)';
-          }
+        gsap.fromTo(
+      imageRef.current,
+      { opacity: 0, y: -100 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        scrollTrigger: {
+          trigger: imageRef.current,
+          start: "top 75%",
+          toggleActions: "play none none reverse"
         }
       }
-      
-      lastScrollY.current = currentScrollY;
-    };
+    );
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    if (firstRowRef.current) {
+      gsap.to(firstRowRef.current, {
+        x: () => `-${firstRowRef.current!.scrollWidth / 2}px`,
+        ease: "none",
+        scrollTrigger: {
+          trigger: firstRowRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+    }
+
+    if (secondRowRef.current) {
+      gsap.to(secondRowRef.current, {
+        x: () => `${secondRowRef.current!.scrollWidth / 2}px`,
+        ease: "none",
+        scrollTrigger: {
+          trigger: secondRowRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+    }
   }, []);
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.imageContainer}>
-        <Image 
-          src="/imgs/intro.png" 
-          alt="Pessoa sentada, usando um fone de ouvido, olhando para o lado" 
-          fill
-          objectFit="cover"
-          priority
-        />
+
+          <Image
+          ref={imageRef}
+            src="/imgs/intro.png"
+            alt="Imagem em em preto e branco. Mulher oriental de cabelo curto sentada virada olhando pro lado com a mão apoiada na boca e usando fone de ouvido."
+            fill
+            objectFit="cover"
+            priority
+          />
+
       </div>
+
       <div className={styles.textWrapper}>
         <div className={styles.textRow}>
           <div ref={firstRowRef} className={styles.textContent}>
@@ -73,7 +84,7 @@ export function IntroBottom() {
         </div>
         <div className={styles.textRow}>
           <div ref={secondRowRef} className={styles.textContent}>
-            <span className={styles.text2} >{TEXT2}</span>
+            <span className={styles.text2}>{TEXT2}</span>
             <span className={styles.text2}>{TEXT2}</span>
             <span className={styles.text2}>{TEXT2}</span>
           </div>
@@ -81,4 +92,4 @@ export function IntroBottom() {
       </div>
     </div>
   );
-} 
+}

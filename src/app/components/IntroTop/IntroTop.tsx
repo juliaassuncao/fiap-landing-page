@@ -19,7 +19,7 @@ export function IntroTop() {
       gsap.to(firstRowRef.current, {
         xPercent: -50,
         repeat: -1,
-        duration: 20,
+        duration: 50,
         ease: "linear",
       });
     }
@@ -28,7 +28,7 @@ export function IntroTop() {
       gsap.to(secondRowRef.current, {
         xPercent: 50,
         repeat: -1,
-        duration: 20,
+        duration: 50,
         ease: "linear",
       });
     }
@@ -41,11 +41,15 @@ export function IntroTop() {
           <div ref={firstRowRef} className={styles.textContent}>
             <span>{TEXT1}&nbsp;&nbsp;&nbsp;</span>
             <span>{TEXT1}&nbsp;&nbsp;&nbsp;</span>
+            <span>{TEXT1}&nbsp;&nbsp;&nbsp;</span>
+            <span>{TEXT1}&nbsp;&nbsp;&nbsp;</span>
           </div>
         </div>
         <div className={styles.line}></div>
         <div className={styles.textRow}>
           <div ref={secondRowRef} className={styles.textContent}>
+            <span>{TEXT2}&nbsp;&nbsp;&nbsp;</span>
+            <span>{TEXT2}&nbsp;&nbsp;&nbsp;</span>
             <span>{TEXT2}&nbsp;&nbsp;&nbsp;</span>
             <span>{TEXT2}&nbsp;&nbsp;&nbsp;</span>
           </div>
