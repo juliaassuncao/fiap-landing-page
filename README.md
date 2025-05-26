@@ -8,6 +8,10 @@ Landing page desenvolvida como parte de uma avaliação técnica para vaga de Fr
 |--------|--------|
 | ![Desktop](./public/desktop-image.png) | ![Mobile](./public/mobile-image.png) |
 
+## 📸 Layout de Referência
+
+O design desta página foi baseado em um protótipo fornecido no Figma.  
+[Visualizar protótipo no Figma](https://www.figma.com/design/aAAuhPpxsfmd1Lb18R2qcz/Teste-T%C3%A9cnico-Front-end---FIAP?node-id=0-1&p=f&t=b63ygSEUA8wq5rSK-0)
 
 ## 🧪 Tecnologias
 
@@ -25,11 +29,6 @@ Antes de começar, verifique se você tem instalado:
 
 - [Node.js](https://nodejs.org/) (recomendado: versão 18 ou superior)
 - [Yarn](https://yarnpkg.com) ou [npm](https://www.npmjs.com/)
-
-## 📸 Layout de Referência
-
-O design desta página foi baseado em um protótipo fornecido no Figma.  
-[Visualizar protótipo no Figma](https://www.figma.com/design/aAAuhPpxsfmd1Lb18R2qcz/Teste-T%C3%A9cnico-Front-end---FIAP?node-id=0-1&p=f&t=b63ygSEUA8wq5rSK-0)
 
 ## 🚀 Como rodar o projeto
 
