@@ -68,6 +68,6 @@ http://localhost:3000
 
 ## 👩‍💻 Autora
 
-Desenvolvido por **[Julia Assunção]**  
+Desenvolvido por **Julia Assunção**  
 📧 [email@exemplo.com](mailto:juliaassuncao256@gmail.com)  
 💼 [LinkedIn](https://www.linkedin.com/in/julia-assun%C3%A7%C3%A3o-8128aa158/)
