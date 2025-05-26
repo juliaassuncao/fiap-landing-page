@@ -71,55 +71,55 @@ export function Courses() {
         </div>
       </div>
 
-          <div className={styles.tabContents}>
-            {ITEMS.map((tab, index) => (
-              <div
-                key={tab.title}
-                className={`${styles.tabContent} ${
-                  activeTab === index ? styles.active : ""
-                }`}
-              >
-                <h6 className={styles.tabTitle}>{tab.title}</h6>
-                {tab.courses.map((course, courseIndex) => (
-                  <div key={courseIndex} className={styles.courseItem}>
-                    <p className={styles.courseTitle}>{course.title}</p>
-                    <span className={styles.courseType}>{course.type}</span>
-                  </div>
-                ))}
+      <div className={styles.tabContents}>
+        {ITEMS.map((tab, index) => (
+          <div
+            key={tab.title}
+            className={`${styles.tabContent} ${
+              activeTab === index ? styles.active : ""
+            }`}
+          >
+            <h6 className={styles.tabTitle}>{tab.title}</h6>
+            {tab.courses.map((course, courseIndex) => (
+              <div key={courseIndex} className={styles.courseItem}>
+                <p className={styles.courseTitle}>{course.title}</p>
+                <span className={styles.courseType}>{course.type}</span>
               </div>
             ))}
+          </div>
+        ))}
+      </div>
 
-        </div>
-        <div className={styles.mobileAccordion}>
-          {ITEMS.map((tab, index) => (
-            <div
-              key={tab.title}
-              className={`${styles.accordionItem} ${
-                expandedMobile === index ? styles.expanded : ""
-              }`}
+      <div className={styles.mobileAccordion}>
+        {ITEMS.map((tab, index) => (
+          <div
+            key={tab.title}
+            className={`${styles.accordionItem} ${
+              expandedMobile === index ? styles.expanded : ""
+            }`}
+          >
+            <button
+              className={styles.accordionHeader}
+              onClick={() => handleMobileClick(index)}
             >
-              <button
-                className={styles.accordionHeader}
-                onClick={() => handleMobileClick(index)}
-              >
-                {tab.title}
-                <div className={styles.expandIcon}>
-                  <span className={styles.horizontalLine} />
-                  <span className={styles.verticalLine} />
-                </div>
-              </button>
-
-              <div className={styles.accordionContent}>
-                {tab.courses.map((course, courseIndex) => (
-                  <div key={courseIndex} className={styles.courseItem}>
-                    <p className={styles.courseTitle}>{course.title}</p>
-                    <span className={styles.courseType}>{course.type}</span>
-                  </div>
-                ))}
+              {tab.title}
+              <div className={styles.expandIcon}>
+                <span className={styles.horizontalLine} />
+                <span className={styles.verticalLine} />
               </div>
+            </button>
+
+            <div className={styles.accordionContent}>
+              {tab.courses.map((course, courseIndex) => (
+                <div key={courseIndex} className={styles.courseItem}>
+                  <p className={styles.courseTitle}>{course.title}</p>
+                  <span className={styles.courseType}>{course.type}</span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

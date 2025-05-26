@@ -1,4 +1,4 @@
-@use '../../styles/main.scss' as *;
+@use "../../styles/main.scss" as *;
 
 .container {
   display: flex;
@@ -7,12 +7,16 @@
   width: 100%;
   height: 100vh;
   position: relative;
-  // padding: 2rem; 
   flex-direction: column;
+
+  @include respond-to("720p") {
+    margin-top: 5rem;
+  }
 
   @include respond-to("sm") {
     transform: translateY(-6rem);
   }
+
 }
 
 .backgroundText {
@@ -26,6 +30,11 @@
   word-break: break-word;
   pointer-events: none;
   color: $gray-bg-text;
+
+  @include respond-to("720p") {
+    font-size: 24rem;
+    line-height: 0.8;
+  }
 
   @include respond-to("xl") {
     font-size: 16rem;
@@ -55,46 +64,51 @@
   flex-direction: column;
   letter-spacing: -0.5%;
   font-weight: $font-weight-book;
-  // position: relative;
+  position: absolute;
+  top: 0;
   z-index: 1;
   width: 100%;
   max-width: 1200px;
-  // align-self: center;
-  // justify-content: center;
-  // margin-inline: auto;
 
   span {
     display: block;
     white-space: nowrap;
+    text-align: left;
 
     @include respond-to("sm") {
       transform: translateY(-1rem);
     }
 
     &:first-child {
-      // text-align: right;
-      padding-right: 5%;
+      margin-left: 7.75rem;
+
+      @include respond-to("sm") {
+        margin-left: 15%;
+      }
     }
 
     &:last-child {
-      // text-align: left;
-      margin-left: 1.6875rem;
-
-      @include respond-to("lg") {
-        margin-left: 2rem;
-      }
+      margin-left: 3rem;
 
       @include respond-to("sm") {
         margin-left: 10%;
-      }
-
-      @include respond-to("xs") {
-        margin-left: -1rem;
       }
     }
   }
 
   @include respond-to("sm") {
     font-size: clamp(2.25rem, 5vw, 2.5rem);
+  }
+
+  @include respond-to("720p") {
+    top: 40%;
+  }
+
+  @include respond-to("md") {
+    top: 0;
+  }
+
+  @include respond-to("sm") {
+    top: 40%;
   }
 }

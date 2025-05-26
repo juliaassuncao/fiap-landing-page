@@ -61,9 +61,7 @@ export function WaterAnimation() {
         src={`/imgs/water/water_${frames[currentFrame]}.jpg`}
         alt="Animação de água controlada pelo scroll"
         fill
-        objectFit="cover"
-        placeholder="blur"
-        blurDataURL="/imgs/water/placeholder.jpg"
+        style={{ objectFit: 'cover' }}
         priority
       />
     </div>

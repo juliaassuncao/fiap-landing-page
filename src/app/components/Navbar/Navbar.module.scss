@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   height: 80px;
-  background-color: $bg-navbar;
+  background-color: $bg-site;
   z-index: 100;
   display: flex;
   align-items: center;
@@ -38,5 +38,5 @@
 }
 
 .scrolled {
-  background-color: $bg-site;
+  background-color: $bg-navbar;
 }

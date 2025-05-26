@@ -38,11 +38,11 @@ export function Header() {
     <div className={styles.container}>
       <span ref={backgroundRef} className={styles.backgroundText}>
         SOBRE
+        <h1 className={styles.title}>
+          <span ref={primaryRef}>A Melhor Faculdade</span>
+          <span ref={secondaryRef}>de Tecnologia</span>
+        </h1>
       </span>
-      <h1 className={styles.title}>
-        <span ref={primaryRef}>A Melhor Faculdade</span>
-        <span ref={secondaryRef}>de Tecnologia</span>
-      </h1>
     </div>
   );
 }

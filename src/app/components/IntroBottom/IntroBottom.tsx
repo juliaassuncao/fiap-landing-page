@@ -68,7 +68,7 @@ export function IntroBottom() {
             src="/imgs/intro.png"
             alt="Imagem em em preto e branco. Mulher oriental de cabelo curto sentada virada olhando pro lado com a mão apoiada na boca e usando fone de ouvido."
             fill
-            objectFit="cover"
+            style={{ objectFit: 'cover' }}
             priority
           />
 
