@@ -6,8 +6,8 @@ Landing page desenvolvida como parte de uma avaliação técnica para vaga de Fr
 
 | Desktop | Mobile |
 |--------|--------|
-| ![Desktop](./public/desktop-image.png) | ![Desktop](./public/desktop-image-courses.png) |
-| ![Mobile](./public/mobile-image.png) | ![Mobile Landscape](./public/mobile-landscape-image.png) |
+| ![Desktop](./public/desktop-image.png) | ![Mobile](./public/mobile-image.png) |
+| ![Desktop](./public/desktop-image-courses.png) | ![Mobile Landscape](./public/mobile-landscape-image.png) |
 
 ## 📸 Layout de Referência
 
