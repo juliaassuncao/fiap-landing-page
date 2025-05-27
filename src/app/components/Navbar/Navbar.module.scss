@@ -1,6 +1,6 @@
 @use "../../styles/main.scss" as *;
 
-.header {
+.navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,31 +12,30 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease;
-}
 
-.container {
-  max-width: var(breakpoint-xl);
-  height: 100%;
-  margin: 0 auto;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-}
+  &--scrolled {
+    background-color: $bg-navbar;
+  }
 
-.logo {
-  display: flex;
-  align-items: center;
-}
+  &__container {
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+  }
 
-.progressBar {
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  height: 3px;
-  background-color: $bar-hover;
-  transition: width 0.1s linear
-}
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
 
-.scrolled {
-  background-color: $bg-navbar;
+  &__progress-bar {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    height: 3px;
+    background-color: $bar-hover;
+    transition: width 0.1s linear;
+  }
 }

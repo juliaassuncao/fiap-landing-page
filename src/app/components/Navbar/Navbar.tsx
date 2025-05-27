@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Navbar.module.scss";
@@ -6,31 +7,35 @@ import { useEffect, useState } from "react";
 
 export function Navbar() {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const windowHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const currentScroll = window.scrollY;
-      const scrollPercentage = (currentScroll / windowHeight) * 100;
+    const updateScrollProgress = () => {
+      if (typeof window === "undefined") return;
 
-      setScrollProgress(scrollPercentage);
-      setIsScrolled(currentScroll > 0);
+      const scrollTop = window.scrollY;
+      const maxScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const percentage = (scrollTop / maxScroll) * 100;
+
+      setScrollProgress(percentage);
+      setHasScrolled(scrollTop > 0);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    window.addEventListener("scroll", updateScrollProgress);
+    updateScrollProgress();
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", updateScrollProgress);
   }, []);
 
   return (
     <header
-      className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}
+      className={`${styles.navbar} ${
+        hasScrolled ? styles["navbar--scrolled"] : ""
+      }`}
     >
-      <div className={styles.container}>
-        <Link href="/" className={styles.logo}>
+      <div className={styles["navbar__container"]}>
+        <Link href="/" className={styles["navbar__logo"]}>
           <Image
             src="/svgs/logo-fiap.svg"
             alt="Logo da FIAP"
@@ -41,8 +46,9 @@ export function Navbar() {
         </Link>
       </div>
       <div
-        className={styles.progressBar}
+        className={styles["navbar__progress-bar"]}
         style={{ width: `${scrollProgress}%` }}
+        aria-hidden="true"
       />
     </header>
   );
