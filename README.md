@@ -6,7 +6,8 @@ Landing page desenvolvida como parte de uma avaliação técnica para vaga de Fr
 
 | Desktop | Mobile |
 |--------|--------|
-| ![Desktop](./public/desktop-image.png) | ![Mobile](./public/mobile-image.png) |
+| ![Desktop](./public/desktop-image.png) | ![Desktop](./public/desktop-image-courses.png) |
+| ![Mobile](./public/mobile-image.png) | ![Mobile Landscape](./public/mobile-landscape-image.png) |
 
 ## 📸 Layout de Referência
 
@@ -66,8 +67,12 @@ npm run dev
 http://localhost:3000
 ```
 
+## 📝 Observação sobre o layout
+
+Alguns valores de espaçamento e tipografia foram ajustados em relação ao Figma devido a pequenas inconsistências no layout original (como desalinhamentos ou medidas que não refletiam bem o visual mostrado no vídeo de referência). As mudanças foram feitas visando melhorar a harmonia visual na tela, sempre com respeito ao trabalho de design e apenas como sugestão de melhoria para implementação nos diversos tipos de telas que precisavam ser abrangidos.
+
 ## 👩‍💻 Autora
 
 Desenvolvido por **Julia Assunção**  
-📧 [Gmail](mailto:juliaassuncao256@gmail.com)  
+📧 [E-mail FIAP](mailto:julia.silva@fiap.com.br)  
 💼 [LinkedIn](https://www.linkedin.com/in/julia-assun%C3%A7%C3%A3o-8128aa158/)
