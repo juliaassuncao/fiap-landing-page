@@ -3,13 +3,16 @@
 // ==============================================
 
 $breakpoints: (
-  "ultra": 240rem,     // 3840px
-  "hdplus": 100rem,    // 1600px
-  "720p": 80rem,       // 1280px
-  "md": 52rem,         // 820px (iPad Air)
-  "sm": 48rem,         // 768px (iPad)
-  "xs": 26rem,         // 414px (iPhone 8 Plus)
-  "xxs": 20rem         // 320px (iPhone 5/SE)
+  "hdplus": 100rem,      // 1600px
+  "hd": 90rem,           // 1440px
+  "small-hd": 86rem,     // 1366px
+  "720p": 80rem,         // 1280px
+  "ipad-pro": 64rem,     // 1024px
+  "md": 52rem,           // 820px (iPad Air)
+  "sm": 48rem,           // 768px (iPad)
+  "xs": 26rem,           // 414px (iPhone 8 Plus)
+  "mobile": 22.5rem,     // 360px (Galaxy S5)
+  "xxs": 20rem           // 320px (iPhone 5/SE)
 );
 
 // ==============================================
@@ -25,13 +28,8 @@ $breakpoints: (
   }
 
   // Casos especiais
-  @else if $breakpoint == "iphone-5-se-landscape" {
-    @media (orientation: landscape) and (max-width: 568px) and (max-height: 320px) {
-      @content;
-    }
-  }
   @else if $breakpoint == "landscape" {
-    @media (orientation: landscape) {
+    @media (orientation: landscape) and (max-width: 737px) and (max-height: 415px) {
       @content;
     }
   }

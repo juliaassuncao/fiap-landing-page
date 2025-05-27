@@ -42,18 +42,25 @@
 
   @include respond-to("sm") {
     margin-top: -6rem;
+    font-size: 3rem;
   }
 
   @include respond-to("xs") {
     font-size: 2rem;
-    margin-top: -14.5rem;
+    margin-top: -17.5rem;
     margin-left: -6rem;
   }
 
+  @include respond-to("mobile") {
+    font-size: 1.6rem;
+    margin-top: -13.5rem;
+    margin-left: -5rem;
+  }
+
   @include respond-to("xxs") {
-    margin-top: -6.5rem;
-    margin-left: -3rem;
-    font-size: 1.5rem;
+    margin-top: -12.5rem;
+    margin-left: -4rem;
+    font-size: 1.4rem;
   }
 
   span {
@@ -114,8 +121,8 @@
   pointer-events: none;
 
   @include respond-to("hdplus") {
-    font-size: 18rem;
-    top: 37%;
+    font-size: 20rem;
+    top: 33%;
   }
 
   @include respond-to("720p") {
@@ -129,10 +136,19 @@
     top: 10rem;
   }
 
+  @include respond-to("sm") {
+    font-size: 10rem;
+    top: 5rem;
+  }
+
+  @include respond-to("xs") {
+    font-size: 9rem;
+    top: 4rem;
+  }
+
   @include respond-to("xxs") {
     font-size: 7rem;
     top: 10%;
-    margin-right: 1rem;
   }
 }
 
@@ -140,17 +156,15 @@
 // Responsividade dispositivos móveis
 // ==============================================
 
-@include respond-to("iphone-5-se-landscape") {
+@include respond-to("landscape") {
+
   .container {
     height: 100vh;
   }
-
+  
   .title {
-    position: absolute;
-    top: 25%;
-    left: 1.4rem;
-    text-align: center;
     font-size: 2.5rem;
+    margin-top: 0.2rem;
 
     span {
       &:last-child {
@@ -160,7 +174,7 @@
   }
 
   .backgroundText {
-    font-size: 9rem;
-    top: 20%;
+    font-size: 10rem;
+    top: 42%;
   }
 }
