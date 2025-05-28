@@ -40,7 +40,7 @@ export function Navbar() {
             src="/svgs/logo-fiap.svg"
             alt="Logo da FIAP"
             width={144}
-            height={48}
+            height={39}
             priority
           />
         </Link>

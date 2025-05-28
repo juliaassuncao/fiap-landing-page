@@ -1,180 +1,95 @@
 @use "../../styles/main.scss" as *;
 
 .container {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 100vh;
-
-  @include respond-to("md") {
-    height: 80vh;
-  }
-
-  @include respond-to("xs") {
-    transform: translateY(3rem);
-    height: 80vh;
-  }
-
-  @include respond-to("xxs") {
-    transform: translateY(3rem);
-    height: 75vh;
-  }
-}
-
-.title {
-  font-size: 6.875rem;
-  color: $text-primary;
-  display: flex;
-  flex-direction: column;
-  font-weight: $font-weight-book;
-
-  @include respond-to("hdplus") {
-    font-size: 5rem;
-  } 
-
-  @include respond-to("md") {
-    font-size: 4rem;
-    margin-top: -13.5rem;
-    margin-left: 1rem;
-  }
-
-  @include respond-to("sm") {
-    margin-top: -6rem;
-    font-size: 3rem;
-  }
+  min-height: 100vh;
+  text-align: center;
+  overflow: visible;
+  box-sizing: border-box;
 
   @include respond-to("xs") {
-    font-size: 2rem;
-    margin-top: -17.5rem;
-    margin-left: -6rem;
-  }
-
-  @include respond-to("mobile") {
-    font-size: 1.6rem;
-    margin-top: -13.5rem;
-    margin-left: -5rem;
-  }
-
-  @include respond-to("xxs") {
-    margin-top: -12.5rem;
-    margin-left: -4rem;
-    font-size: 1.4rem;
-  }
-
-  span {
-    white-space: nowrap;
-    line-height: 1;
-
-    &:first-child {
-      margin-left: 8rem;
-
-      @include respond-to("hdplus") {
-        margin-left: 1rem;
-      }
-
-      @include respond-to("fhd") {
-        margin-left: 10rem;
-      }
-
-      @include respond-to("xs") {
-        margin-left: 15%;
-      }
-
-      @include respond-to("xxs") {
-        margin-left: 2.7rem;
-      }
-    }
-
-    &:last-child {
-      margin-left: 3rem;
-
-      @include respond-to("hdplus") {
-        margin-left: -3rem;
-      }
-
-      @include respond-to("sm") {
-        margin-left: -2rem;
-      }
-
-      @include respond-to("xs") {
-        margin-left: 10%;
-      }
-
-      @include respond-to("xxs") {
-        margin-left: 2.2rem;
-      }
-    }
+    min-height: 80vh;
   }
 }
 
 .backgroundText {
-  font-size: 22rem;
+  position: absolute;
+  transform: translateY(8vh);
+  font-size: clamp(4rem, 20vw, 22rem);
   color: $gray-bg-text;
   font-weight: $font-weight-black;
-  position: absolute;
-  top: 27rem;
-  user-select: none;
-  z-index: 0;
-  word-break: break-word;
   pointer-events: none;
-
-  @include respond-to("hdplus") {
-    font-size: 20rem;
-    top: 33%;
-  }
-
-  @include respond-to("720p") {
-    font-size: 20rem;
-    line-height: 0.8;
-  }
-
-  @include respond-to("md") {
-    text-align: right;
-    padding-right: 1rem;
-    top: 10rem;
-  }
-
-  @include respond-to("sm") {
-    font-size: 10rem;
-    top: 5rem;
-  }
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
 
   @include respond-to("xs") {
-    font-size: 9rem;
-    top: 4rem;
+    font-size: clamp(1rem, 19vh, 9rem);
+    line-height: clamp(1rem, 17vh, 9rem);
+    white-space: normal;
+    word-break: break-word;
+    text-align: right;
+    right: 1.5rem;
+    transform: translateY(-5vh);
+  }
+
+    @include respond-to("mobile") {
+    transform: translateY(-4vh);
   }
 
   @include respond-to("xxs") {
-    font-size: 7rem;
-    top: 10%;
+    transform: translateY(-3vh);
   }
 }
 
-// ==============================================
-// Responsividade dispositivos móveis
-// ==============================================
+.title {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
-@include respond-to("landscape") {
-
-  .container {
-    height: 100vh;
+  @include respond-to("xs") {
+    transform: translateY(-8vh);
   }
-  
-  .title {
-    font-size: 2.5rem;
-    margin-top: 0.2rem;
 
-    span {
-      &:last-child {
-        margin-left: -3rem;
-      }
+  @include respond-to("xxs") {
+    transform: translateY(-6.5vh);
+  }
+
+  span {
+    display: inline-block;
+    font-size: clamp(2rem, 8vw, 6.875rem);
+    font-weight: $font-weight-book;
+    color: $text-primary;
+    white-space: nowrap;
+    line-height: 6.5rem;
+
+    @include respond-to("xs") {
+      font-size: clamp(1rem, 4.5vh, 2rem);
+      line-height: clamp(1rem, 5vh, 2rem);
     }
   }
 
-  .backgroundText {
-    font-size: 10rem;
-    top: 42%;
+  span:first-of-type {
+    transform: translateX(4vh);
+  }
+
+  span:last-of-type {
+    transform: translateX(-18vh);
+  }
+
+  // Responsividade spans
+  @include respond-to("xs") {
+    span:first-of-type {
+      transform: translateX(0vw);
+    }
+    span:last-of-type {
+      transform: translateX(-15vw);
+    }
   }
 }
