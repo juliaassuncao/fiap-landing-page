@@ -27,6 +27,25 @@
   white-space: nowrap;
   z-index: 0;
 
+  // // 👉 Regra específica para 1024 x 640
+  // @include respond-exactly(1024px, 640px) {
+  //   color: blue;
+  // }
+
+  // 👉 Regras compartilhadas para:
+  // 1024 x 1366 (iPad Pro), 820 x 1180 (iPad Air), 768 x 1024 (iPad)
+  @include respond-exactly(1024px, 1366px) {
+    color: red;
+  }
+
+  @include respond-exactly(820px, 1180px) {
+    color: red;
+  }
+
+  @include respond-exactly(768px, 1024px) {
+    color: red;
+  }
+
   @include respond-to("xs") {
     font-size: clamp(1rem, 19vh, 9rem);
     line-height: clamp(1rem, 17vh, 9rem);
@@ -37,7 +56,7 @@
     transform: translateY(-5vh);
   }
 
-    @include respond-to("mobile") {
+  @include respond-to("mobile") {
     transform: translateY(-4vh);
   }
 
@@ -45,6 +64,7 @@
     transform: translateY(-3vh);
   }
 }
+
 
 .title {
   position: relative;

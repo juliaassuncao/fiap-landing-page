@@ -3,42 +3,96 @@
 // ==============================================
 
 $breakpoints: (
-  "hdplus": 100rem,      // 1600px
-  "hd": 90rem,           // 1440px
-  "small-hd": 86rem,     // 1366px
-  "720p": 80rem,         // 1280px
-  "ipad-pro": 64rem,     // 1024px
-  "md": 52rem,           // 820px (iPad Air)
-  "sm": 48rem,           // 768px (iPad)
-  "xs": 26rem,           // 414px (iPhone 8 Plus)
-  "mobile": 23rem,     // 360px (Galaxy S5)
-  "xxs": 20rem           // 320px (iPhone 5/SE)
+  "hdplus": 100rem,          // 1600px
+  "hd": 90rem,               // 1440px
+  "small-hd": 86rem,         // 1366px
+  "720p": 80rem,             // 1280px
+  "ipad-pro": 64rem,         // 1024px
+  "md": 52rem,               // 820px (iPad Air)
+  "sm": 48rem,               // 768px (iPad)
+  "xs": 26rem,               // 414px (iPhone 8 Plus)
+  "mobile": 23rem,           // 360px (Galaxy S5)
+  "xxs": 20rem,              // 320px (iPhone 5/SE)
+
+  // Breakpoints combinados
+  "ipad-pro-portrait": ("width": 1024px, "height": 1366px),
+  "1024-low": ("width": 1024px, "height": 640px)
 );
 
 // ==============================================
 // Mixin de Media Queries
 // ==============================================
 
-@mixin respond-to($breakpoint) {
-  // Se estiver no mapa de breakpoints
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (max-width: map-get($breakpoints, $breakpoint)) {
+@mixin respond-to($conditions) {
+  // Se for uma string e estiver no mapa
+  @if type-of($conditions) == string {
+    // Caso seja um breakpoint simples
+    @if map-has-key($breakpoints, $conditions) {
+      $value: map-get($breakpoints, $conditions);
+
+      // Se for um valor único (ex: 64rem), usa max-width
+      @if type-of($value) == number {
+        @media (max-width: $value) {
+          @content;
+        }
+
+      // Se for um mapa de condições, gera consulta composta
+      } @else if type-of($value) == map {
+        $query: "";
+        @each $feature, $val in $value {
+          $query: "#{$query} and (#{$feature}: #{$val})";
+        }
+        $query: str-slice($query, 6); // remove o primeiro " and"
+        @media (#{$query}) {
+          @content;
+        }
+
+      } @else {
+        @warn "⚠️ Valor inesperado para breakpoint `#{$conditions}`.";
+      }
+
+    } @else if $conditions == "landscape" {
+      @media (orientation: landscape) and (max-width: 737px) and (max-height: 415px) {
+        @content;
+      }
+    } @else if $conditions == "portrait" {
+      @media (orientation: portrait) {
+        @content;
+      }
+    } @else {
+      @warn "⚠️ Breakpoint `#{$conditions}` não está definido no mapa!";
+    }
+  }
+
+  // Caso seja um mapa diretamente passado
+  @else if type-of($conditions) == map {
+    $query: "";
+    @each $feature, $value in $conditions {
+      $query: "#{$query} and (#{$feature}: #{$value})";
+    }
+    $query: str-slice($query, 6);
+    @media (#{$query}) {
       @content;
     }
   }
 
-  // Casos especiais
-  @else if $breakpoint == "landscape" {
-    @media (orientation: landscape) and (max-width: 737px) and (max-height: 415px) {
-      @content;
-    }
-  }
-  @else if $breakpoint == "portrait" {
-    @media (orientation: portrait) {
-      @content;
-    }
-  }
   @else {
-    @warn "⚠️ Breakpoint `#{$breakpoint}` não está definido no mapa!";
+    @warn "⚠️ Tipo de valor inválido para `respond-to()`.";
+  }
+}
+
+// ==============================================
+// Mixin para Media Query Exata (width + height)
+// ==============================================
+
+@mixin respond-exactly($width, $height) {
+  @media (width: $width) and (height: $height) {
+    @content;
+  }
+}
+
+@mixin respond-max($width, $height) {
+  @media (max-width: $width) and (max-height: $height) {
+    @content;
   }
 }

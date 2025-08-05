@@ -1,41 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import styles from "./Courses.module.scss";
-import type { Item } from "./Courses.interface";
-
-const ITEMS: Item[] = [
-  {
-    title: "Tecnologia",
-    courses: [
-      { title: "Big Data Ecosystem", type: "REMOTO • LIVE" },
-      { title: "Creating Dashboards for BI", type: "REMOTO • LIVE" },
-      {
-        title: "Big Data Science - Machine Learning & Data Mining",
-        type: "REMOTO • LIVE • MULTIMÍDIA",
-      },
-      { title: "Storytelling", type: "REMOTO • LIVE" },
-    ],
-  },
-  {
-    title: "Inovação",
-    courses: [
-      { title: "UX", type: "Digital" },
-      { title: "UX Writing", type: "LIVE" },
-      { title: "Storytelling para Negócios", type: "LIVE" },
-      { title: "Chatbots", type: "LIVE" },
-    ],
-  },
-  {
-    title: "Negócios",
-    courses: [
-      { title: "Agile Culture", type: "Digital" },
-      { title: "DPO Data Protection Officer", type: "LIVE" },
-      { title: "IT Business Partner", type: "LIVE" },
-      { title: "Perícia Forense Computacional", type: "LIVE" },
-    ],
-  },
-];
+import styles from "./styles.module.scss";
+import { ITEMS } from "./constants";
 
 export function Courses() {
   const [activeTab, setActiveTab] = useState(0);
@@ -52,7 +19,11 @@ export function Courses() {
   return (
     <div className={styles.container}>
       {/* === ABAS DOS CONTEÚDOS === */}
-      <div className={styles.desktopTabs} role="tablist" aria-label="Categorias de cursos">
+      <div
+        className={styles.desktopTabs}
+        role="tablist"
+        aria-label="Categorias de cursos"
+      >
         <div>
           <h5 className={styles.title}>Cursos</h5>
           <h6 className={styles.subtitle}>Cursos de Curta Duração</h6>
@@ -61,7 +32,9 @@ export function Courses() {
           {ITEMS.map((tab, index) => (
             <button
               key={tab.title}
-              className={`${styles.tabButton} ${activeTab === index ? styles.active : ""}`}
+              className={`${styles.tabButton} ${
+                activeTab === index ? styles.active : ""
+              }`}
               onClick={() => handleTabClick(index)}
               role="tab"
               aria-selected={activeTab === index}
@@ -73,13 +46,15 @@ export function Courses() {
           ))}
         </div>
       </div>
-      
+
       {/* === CONTEÚDO DOS CURSOS === */}
       <div className={styles.tabContents}>
         {ITEMS.map((tab, index) => (
           <div
             key={tab.title}
-            className={`${styles.tabContent} ${activeTab === index ? styles.active : ""}`}
+            className={`${styles.tabContent} ${
+              activeTab === index ? styles.active : ""
+            }`}
             role="tabpanel"
             id={`tab-panel-${index}`}
             aria-labelledby={`tab-${index}`}
@@ -100,7 +75,9 @@ export function Courses() {
         {ITEMS.map((tab, index) => (
           <div
             key={tab.title}
-            className={`${styles.accordionItem} ${expandedMobile === index ? styles.expanded : ""}`}
+            className={`${styles.accordionItem} ${
+              expandedMobile === index ? styles.expanded : ""
+            }`}
           >
             <button
               className={styles.accordionHeader}

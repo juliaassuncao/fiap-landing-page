@@ -1,5 +1,9 @@
 import "./styles/globals.scss";
 import type { Metadata } from "next";
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(useGSAP);
 
 export const metadata: Metadata = {
   title: "FIAP",

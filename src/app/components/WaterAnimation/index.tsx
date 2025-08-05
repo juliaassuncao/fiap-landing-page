@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import styles from './WaterAnimation.module.scss';
+import styles from './styles.module.scss';
 import { useEffect, useRef, useState } from 'react';
 
 const frames = Array.from({ length: 192 }, (_, index) =>

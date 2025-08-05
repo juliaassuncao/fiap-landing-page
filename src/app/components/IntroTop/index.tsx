@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react';
-import styles from './IntroTop.module.scss';
+import styles from './styles.module.scss';
 import gsap from 'gsap';
 
 type MarqueeRowProps = {
