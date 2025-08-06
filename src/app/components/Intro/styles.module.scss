@@ -1,0 +1,76 @@
+@use "../../styles/main.scss" as *;
+
+.container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.marqueeInfiniteText {
+  font-size: 83px;
+  color: $text-primary;
+  line-height: 1.5;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  & .line {
+    width: 100%;
+    height: 0.125rem;
+    background-color: $white;
+
+    &:last-of-type {
+      margin-bottom: 4.75rem;
+    }
+  }
+}
+
+.mediaWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18.4375rem;
+
+  & .imageContainer {
+    object-fit: contain;
+  }
+
+  & .marqueeScrollText {
+    position: absolute;
+    font-size: 9rem;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 0.125rem $stroke-text;
+    letter-spacing: -0.06em;
+    white-space: nowrap;
+
+    bottom: -6rem;
+
+    & > :last-child {
+      font-style: italic;
+    }
+  }
+}
+
+@include respond-to("md") {
+  .marqueeInfiniteText {
+    font-size: 2.1875rem;
+
+    & .line {
+      height: 0.0625rem;
+
+      &:last-of-type {
+        margin-bottom: 12.1875rem;
+      }
+    }
+  }
+
+  .mediaWrapper {
+    display: none;
+  }
+}
+
+
+
