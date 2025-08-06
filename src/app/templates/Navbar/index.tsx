@@ -3,22 +3,23 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./styles.module.scss";
-import { useScrollProgress } from "./hooks";
+import { updateScrollProgress } from "./animations";
 
 export function Navbar() {
-  const { scrollProgress, hasScrolled } = useScrollProgress();
+  const { scrollProgress, hasScrolled } = updateScrollProgress();
   
   return (
     <header
       className={`${styles.navbar} ${
-        hasScrolled ? styles["navbar--scrolled"] : ""
+        hasScrolled ? styles.scrolled : ""
       }`}
     >
-      <div className={styles["navbar__container"]}>
-        <Link href="/" className={styles["navbar__logo"]}>
+      <div className={styles.container}>
+        <Link href="/" className={styles.logo}>
           <Image
-            src="/svgs/logo-fiap.svg"
+            src="/imgs/navbar/logo-fiap.svg"
             alt="Logo da FIAP"
+            className={styles.logoImg}
             width={144}
             height={39}
             priority
@@ -26,9 +27,8 @@ export function Navbar() {
         </Link>
       </div>
       <div
-        className={styles["navbar__progress-bar"]}
+        className={styles.progressBar}
         style={{ width: `${scrollProgress}%` }}
-        aria-hidden="true"
       />
     </header>
   );
