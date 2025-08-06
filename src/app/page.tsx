@@ -1,9 +1,9 @@
-import { Courses } from "./components/Courses";
-import { Faq } from "./components/Faq";
-import { Header } from "./components/Header";
-import { Intro } from "./components/Intro";
-import { Navbar } from "./components/Navbar";
-import { WaterAnimation } from "./components/WaterAnimation";
+import { Courses } from "./templates/Courses";
+import { Faq } from "./templates/Faq";
+import { Header } from "./templates/Header";
+import { Intro } from "./templates/Intro";
+import { Navbar } from "./templates/Navbar";
+import { WaterAnimation } from "./templates/WaterAnimation";
 import styles from "./page.module.scss";
 
 export default function Home() {

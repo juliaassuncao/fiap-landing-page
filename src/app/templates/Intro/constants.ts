@@ -1,8 +1,8 @@
 export const INTRO_TEXTS = {
   topLine1: "Cursos e imersões. Uma nova cultura de mercado. ",
   topLine2: "Tecnologia, inovação e negócios. Presente e futuro. ",
-  bottomLine1: "Skills • Conhecimento •\u00A0",
-  bottomLine2: "Muito. Muito além dos tutoriais.\u00A0",
+  bottomLine1: "Skills • Conhecimento • ",
+  bottomLine2: " Muito. Muito além dos tutoriais.",
 };
 
 export const INTRO_IMAGE = {

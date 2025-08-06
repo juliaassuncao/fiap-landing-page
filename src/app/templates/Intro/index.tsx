@@ -2,7 +2,7 @@
 
 import styles from "./styles.module.scss";
 import { INTRO_TEXTS, INTRO_IMAGE } from "./constants";
-import { MarqueeRow } from "../MarqueeRow";
+import { MarqueeRow } from "../../components/MarqueeRow";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
