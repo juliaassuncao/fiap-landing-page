@@ -15,7 +15,7 @@ export function Navbar() {
       }`}
     >
       <div className={styles.container}>
-        <Link href="/" className={styles.logo}>
+        <Link href="/">
           <Image
             src="/imgs/navbar/logo-fiap.svg"
             alt="Logo da FIAP"

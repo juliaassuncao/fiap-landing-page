@@ -7,109 +7,69 @@
   justify-content: center;
   width: 100%;
   min-height: 100vh;
-  text-align: center;
-  overflow: visible;
-  box-sizing: border-box;
 
-  @include respond-to("xs") {
-    min-height: 80vh;
-  }
-}
+  & .backgroundText {
+    position: absolute;
+    top: 37rem;
 
-.backgroundText {
-  position: absolute;
-  transform: translateY(8vh);
-  font-size: clamp(4rem, 20vw, 22rem);
-  color: $gray-bg-text;
-  font-weight: $font-weight-black;
-  pointer-events: none;
-  user-select: none;
-  white-space: nowrap;
-  z-index: 0;
-
-  // // 👉 Regra específica para 1024 x 640
-  // @include respond-exactly(1024px, 640px) {
-  //   color: blue;
-  // }
-
-  // 👉 Regras compartilhadas para:
-  // 1024 x 1366 (iPad Pro), 820 x 1180 (iPad Air), 768 x 1024 (iPad)
-  @include respond-exactly(1024px, 1366px) {
-    color: red;
+    font-size: 35rem;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    font-weight: $font-weight-black;
+    color: $gray-bg-text;
+    text-transform: uppercase;
   }
 
-  @include respond-exactly(820px, 1180px) {
-    color: red;
-  }
-
-  @include respond-exactly(768px, 1024px) {
-    color: red;
-  }
-
-  @include respond-to("xs") {
-    font-size: clamp(1rem, 19vh, 9rem);
-    line-height: clamp(1rem, 17vh, 9rem);
-    white-space: normal;
-    word-break: break-word;
-    text-align: right;
-    right: 1.5rem;
-    transform: translateY(-5vh);
-  }
-
-  @include respond-to("mobile") {
-    transform: translateY(-4vh);
-  }
-
-  @include respond-to("xxs") {
-    transform: translateY(-3vh);
-  }
-}
-
-
-.title {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  @include respond-to("xs") {
-    transform: translateY(-8vh);
-  }
-
-  @include respond-to("xxs") {
-    transform: translateY(-6.5vh);
-  }
-
-  span {
-    display: inline-block;
-    font-size: clamp(2rem, 8vw, 6.875rem);
+  & .title {
+    display: flex;
+    flex-direction: column;
     font-weight: $font-weight-book;
-    color: $text-primary;
-    white-space: nowrap;
-    line-height: 6.5rem;
+    z-index: 1;
+    
+    & span {
+      display: inline-block;
+      font-size: 11rem;
+      line-height: 0.9;
+      letter-spacing: -0.05em;
 
-    @include respond-to("xs") {
-      font-size: clamp(1rem, 4.5vh, 2rem);
-      line-height: clamp(1rem, 5vh, 2rem);
+      &:last-of-type {
+        transform: translateX(-7.2rem);
+      }
     }
   }
+}
 
-  span:first-of-type {
-    transform: translateX(4vh);
-  }
+@include respond-to("xs") {
+  .container {
+    min-height: 66vh;
 
-  span:last-of-type {
-    transform: translateX(-18vh);
-  }
+    & .backgroundText {
+      /* SOB RE */
+      inset: 0;
+      font-size: 15rem;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
 
-  // Responsividade spans
-  @include respond-to("xs") {
-    span:first-of-type {
-      transform: translateX(0vw);
+      word-break: break-word;
+      text-align: right;
+      margin-right: 2.5rem;
+      margin-top: 10rem;
     }
-    span:last-of-type {
-      transform: translateX(-15vw);
+
+    & .title {
+      all: unset;
+      transform: translateY(-2.3rem);
+
+      & span {
+        font-size: 3.6rem;
+        margin-left: 3.9rem;
+        line-height: 1;
+
+        &:last-of-type {
+          transform: translateX(0);
+          margin-left: 2.7rem;
+        }
+      }
     }
   }
 }
